@@ -1,0 +1,32 @@
+Package: MLstudio
+Type: Package
+Title: Platform for Machine Learning Applications
+Version: 0.0.0.9000
+Author: Rami Krispin
+Maintainer: Rami Krispin <rami.krispin@gmail.com>
+Description: Shiny based package for data prep, visualization and machine learning application
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports:
+  caret (>= 6.0-76),
+  data.table (>= 1.10.4),
+  dplyr (>= 0.7.2),
+  DT (>= 0.2),
+  ggplot2 (>= 2.2.1),
+  kableExtra (>= 0.4.0),
+  knitr (>= 1.17),
+  lubridate (>= 1.6.0),
+  plotly (>= 4.7.1),
+  reshape2 (>= 1.4.2),
+  shinydashboard (>= 0.6.1),
+  shinyWidgets (>= 0.3.4),
+  shinycssloaders
+Depends:
+  shiny (>= 1.0.5)
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: knitr
+RoxygenNote: 6.0.1
