@@ -111,8 +111,11 @@ dataset.df$dataset.fixed <- ifelse(dataset.df$space != -1,
 
 installed_datasets <- as.list(paste(dataset.df$package,"-" ,dataset.df$dataset.fixed, sep = " "))
 #------------------------------ Creating list of the avilable data frames/matrices/ time series -------------------------------------
-df_list <- c(names(which(sapply(.GlobalEnv, is.data.frame))),
+df_list <- NULL
+df_list <- try(c(names(which(sapply(.GlobalEnv, is.data.frame))),
              names(which(sapply(.GlobalEnv, is.matrix))),
              names(which(sapply(.GlobalEnv, is.data.table)))
-)
+), silent = TRUE)
+
+
 ts_list <- c(names(which(sapply(.GlobalEnv, is.ts))))
