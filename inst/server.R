@@ -1281,9 +1281,9 @@ server <- function(input, output,session) {
       outputOptions(output, "model_tab_ind", suspendWhenHidden = FALSE)
       output$models1_independent_list  <- renderUI({
 
-        shinyWidgets::pickerInput(inputId = "models1_independent",
+        selectInput(inputId = "models1_independent",
                                   label = "Select the Independent Variable",
-                                  choices = models_df$independent_var, options = list(`actions-box` = TRUE),
+                                  choices = models_df$independent_var, #options = list(`actions-box` = TRUE),
                                   multiple = TRUE,
                                   selected = models_df$independent_var)
 
