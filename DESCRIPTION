@@ -24,7 +24,8 @@ Imports:
   shinycssloaders (>= 0.2.0),
   shiny (>= 1.0.5)
 Depends:
-Suggests: 
+Suggests:
+    h2o,
     knitr,
     rmarkdown,
     testthat

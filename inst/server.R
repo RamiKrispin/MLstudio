@@ -1280,7 +1280,6 @@ server <- function(input, output,session) {
       output$model_tab_ind <- reactive("1")
       outputOptions(output, "model_tab_ind", suspendWhenHidden = FALSE)
       output$models1_independent_list  <- renderUI({
-
         selectInput(inputId = "models1_independent",
                                   label = "Select the Independent Variable",
                                   choices = models_df$independent_var, #options = list(`actions-box` = TRUE),
