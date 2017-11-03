@@ -21,9 +21,9 @@ Imports:
   reshape2 (>= 1.4.2),
   shinydashboard (>= 0.6.1),
   shinyWidgets (>= 0.3.4),
+Depends:
   shinycssloaders (>= 0.2.0),
   shiny (>= 1.0.5)
-Depends:
 Suggests:
     h2o,
     knitr,
