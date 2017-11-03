@@ -19,10 +19,10 @@ Imports:
   lubridate (>= 1.6.0),
   plotly (>= 4.7.1),
   reshape2 (>= 1.4.2),
-  shinydashboard (>= 0.6.1),
+  shinycssloaders (>= 0.2.0),
   shinyWidgets (>= 0.3.4),
 Depends:
-  shinycssloaders (>= 0.2.0),
+  shinydashboard (>= 0.6.1),
   shiny (>= 1.0.5)
 Suggests:
     h2o,
