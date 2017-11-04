@@ -39,11 +39,11 @@ cm_fun <- function(train, test){
 
   options(knitr.table.format = "html")
   table_out <- knitr::kable(cm_df) %>%
-    kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+    kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
                   full_width = FALSE) %>%
-    group_rows("Training Set", 1, dim(train)[1]) %>%
-    group_rows("Testing Set", (dim(train)[1] + 1), dim(train)[1] * 2) %>%
-    add_header_above(c("", "Reference" = dim(train)[1] ))
+    kableExtra::group_rows("Training Set", 1, dim(train)[1]) %>%
+    kableExtra::group_rows("Testing Set", (dim(train)[1] + 1), dim(train)[1] * 2) %>%
+    kableExtra::add_header_above(c("", "Reference" = dim(train)[1] ))
   return(table_out)
 }
 
@@ -71,12 +71,12 @@ cm_fun_v <- function(train, test, valid){
 
   options(knitr.table.format = "html")
   table_out <- knitr::kable(cm_df) %>%
-    kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+    kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
                   full_width = FALSE) %>%
-    group_rows("Training Set", 1, dim(train)[1]) %>%
-    group_rows("Validation Set", (dim(train)[1] + 1), dim(train)[1] * 2) %>%
-    group_rows("Testing Set", (dim(train)[1] * 2 + 1), dim(train)[1] * 3) %>%
-    add_header_above(c("", "Reference" = dim(train)[1] ))
+    kableExtra::group_rows("Training Set", 1, dim(train)[1]) %>%
+    kableExtra::group_rows("Validation Set", (dim(train)[1] + 1), dim(train)[1] * 2) %>%
+    kableExtra::group_rows("Testing Set", (dim(train)[1] * 2 + 1), dim(train)[1] * 3) %>%
+    kableExtra::add_header_above(c("", "Reference" = dim(train)[1] ))
   return(table_out)
 }
 #------------------------------ Accuracy Matrix Function -------------------------------------
