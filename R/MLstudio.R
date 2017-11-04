@@ -5,7 +5,7 @@
 #' MLstudio(launch.browser = TRUE)
 
 runML <- function(launch.browser = TRUE){
-  suppressWarnings(
+
     shiny::runApp(system.file(package = "MLstudio"), launch.browser = launch.browser)
-  )
+
 }
