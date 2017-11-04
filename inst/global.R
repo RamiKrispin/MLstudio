@@ -42,7 +42,7 @@ cm_fun <- function(train, test){
   options(knitr.table.format = "html")
   table_out <- knitr::kable(cm_df) %>%
     kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
-                  full_width = FALSE) %>%
+                              full_width = FALSE) %>%
     kableExtra::group_rows("Training Set", 1, dim(train)[1]) %>%
     kableExtra::group_rows("Testing Set", (dim(train)[1] + 1), dim(train)[1] * 2) %>%
     kableExtra::add_header_above(c("", "Reference" = dim(train)[1] ))
@@ -74,7 +74,7 @@ cm_fun_v <- function(train, test, valid){
   options(knitr.table.format = "html")
   table_out <- knitr::kable(cm_df) %>%
     kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
-                  full_width = FALSE) %>%
+                              full_width = FALSE) %>%
     kableExtra::group_rows("Training Set", 1, dim(train)[1]) %>%
     kableExtra::group_rows("Validation Set", (dim(train)[1] + 1), dim(train)[1] * 2) %>%
     kableExtra::group_rows("Testing Set", (dim(train)[1] * 2 + 1), dim(train)[1] * 3) %>%
@@ -93,14 +93,9 @@ accuracy_fun <- function(train, test){
   a_df[4,] <- c(train$overall[2], test$overall[2])
 }
 #------------------------------ Creating list of the installed packages datasets -------------------------------------
-r_dataset <- NULL
-pack_list <- installed.packages()
-
 packages.list <- as.data.frame(installed.packages(), stringsAsFactors = FALSE)
-
 d <- data(package = packages.list$Package)
 
-#d <- data(package = pack_list[,"Package"])
 dataset.df <- data.frame(package = d$results[,"Package"], dataset =  d$results[,"Item"] ,
                          space = regexpr(" ",d$results[,"Item"]),
                          stringsAsFactors = FALSE )
@@ -111,9 +106,4 @@ dataset.df$dataset.fixed <- ifelse(dataset.df$space != -1,
 
 
 installed_datasets <- as.list(paste(dataset.df$package,"-" ,dataset.df$dataset.fixed, sep = " "))
-#------------------------------ Creating list of the avilable data frames/matrices/ time series -------------------------------------
-df_list <- c(names(which(sapply(.GlobalEnv, is.data.frame))),
-             names(which(sapply(.GlobalEnv, is.matrix))),
-             names(which(sapply(.GlobalEnv, data.table::is.data.table)))
-)
-ts_list <- c(names(which(sapply(.GlobalEnv, is.ts))))
+rm(dataset.df, d, packages.list)
