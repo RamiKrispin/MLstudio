@@ -491,15 +491,15 @@ server <- function(input, output,session) {
 
       }
     } else {
-      output$data_tab2_ts <- renderPlotly({
+      output$data_tab2_ts <- plotly::renderPlotly({
 
 
         if(!input$ts_plot_log){
-          plot_ly( x = time(input_df$df), y = input_df$df, type  = "scatter", mode = input$ts_prep_mode)
+          plotly::plot_ly( x = time(input_df$df), y = input_df$df, type  = "scatter", mode = input$ts_prep_mode)
         } else if(input$ts_plot_log){
-          plot_ly( x = time(input_df$df),
+          plotly::plot_ly( x = time(input_df$df),
                    y = log(input_df$df, base = exp(1)), type  = "scatter", mode = input$ts_prep_mode) %>%
-            layout(title = "Log Transformation")
+            plotly::layout(title = "Log Transformation")
         }
 
       })
@@ -710,10 +710,10 @@ server <- function(input, output,session) {
           var_s <- data.frame(summary.vec)
           names(var_s) <- names(input_df$df)[r1]
           row.names(var_s) <- c("Mean", "Min", "Max", "Median", "Standard Deviation")
-          p <- plot_ly(y = ~ input_df$df[, r1], type = "box", name = names(input_df$df)[r1],
+          p <- plotly::plot_ly(y = ~ input_df$df[, r1], type = "box", name = names(input_df$df)[r1],
                        boxpoints = "all", jitter = 0.3,
                        pointpos = -1.8)%>%
-            layout(yaxis = list(title = "Range"))
+            plotly::layout(yaxis = list(title = "Range"))
         } else if(is.factor(input_df$df[, r1])){
           var.n.levels <- length(levels(input_df$df[, r1]))
           var.levels <- NULL
@@ -725,11 +725,11 @@ server <- function(input, output,session) {
           factor.df <- group_by(input_df$df, get(names(input_df$df)[r1])) %>%
             summarise(count = n())
           names(factor.df) <- c(names(names(input_df$df)[r1]), "Count")
-          p <- plot_ly(data = factor.df, name = "Levels",
+          p <- plotly::plot_ly(data = factor.df, name = "Levels",
                        x =  ~ get(names(factor.df)[1]),
                        y =  ~ get(names(factor.df)[2]),
                        type = "bar") %>%
-            layout(yaxis = list(title = "Count"),
+            plotly::layout(yaxis = list(title = "Count"),
                    xaxis = list(title = "Levels"))
         } else if(is.Date(input_df$df[, r1])){
           var_s <- NULL
@@ -741,7 +741,7 @@ server <- function(input, output,session) {
 
         # render the data summary into table
         output$data_tab2_var_summary <- renderTable(var_s, rownames = TRUE)
-        output$data_tab2_summary_plot <- renderPlotly(p)
+        output$data_tab2_summary_plot <- plotly::renderPlotly(p)
       } else {
         ts_table <- data.frame(c(paste(start(input_df$df), collapse = "-"),
                                  paste(end(input_df$df), collapse = "-"),
@@ -978,7 +978,7 @@ server <- function(input, output,session) {
 
   },{
 
-    output$main_plot <- renderPlotly({
+    output$main_plot <- plotly::renderPlotly({
 
       if(!is.ts(vis_df$df)){
         p <- x <- y <- color <-   NULL
@@ -1005,28 +1005,28 @@ server <- function(input, output,session) {
 
         p <- switch(input$plot_type,
                     "scatter" = {
-                      plot_ly(x = x, y = y, color = color) %>%
-                        layout(xaxis = list(title = input$plot_x),
+                      plotly::plot_ly(x = x, y = y, color = color) %>%
+                        plotly::layout(xaxis = list(title = input$plot_x),
                                yaxis = list(title = input$plot_y))
                     },
                     "line" = {
-                      plot_ly(x = x, y = y, mode = "lines", color = NULL)%>%
-                        layout(xaxis = list(title = input$plot_x),
+                      plotly::plot_ly(x = x, y = y, mode = "lines", color = NULL)%>%
+                        plotly::layout(xaxis = list(title = input$plot_x),
                                yaxis = list(title = input$plot_y))
                     },
                     "box" = {
-                      plot_ly(y = x, type = "box", color = color,
+                      plotly::plot_ly(y = x, type = "box", color = color,
                               name = names(vis_df$df)[which(names(vis_df$df) == input$plot_factor)],
                               boxpoints = "all", jitter = 0.3,
                               pointpos = -1.8)%>%
-                        layout(yaxis = list(title = names(vis_df$df)[which(names(vis_df$df) == input$plot_x)]),
+                        plotly::layout(yaxis = list(title = names(vis_df$df)[which(names(vis_df$df) == input$plot_x)]),
                                xaxis = list(title = "")
                         )
                     },
                     "hist" = {
                       p_hist <- NULL
                       if(input$plot_factor == "None" | input$plot_factor == "NA"){
-                        p_hist <- plot_ly(x = vis_df$df[,input$plot_var], type = "histogram")
+                        p_hist <- plotly::plot_ly(x = vis_df$df[,input$plot_var], type = "histogram")
                       } else if(input$plot_factor != "None" &
                                 input$plot_factor != "NA" &
                                 !is.null(input$plot_factor)){
@@ -1035,10 +1035,10 @@ server <- function(input, output,session) {
                         for(l1 in levels(vis_df$df[,input$plot_factor])){
                           hist.sub.df <- subset(vis_df$df, vis_df$df[,input$plot_factor] == l1)
                           l <- length(plot_list)
-                          plot_list[[l + 1]] <- plot_ly(hist.sub.df,
+                          plot_list[[l + 1]] <- plotly::plot_ly(hist.sub.df,
                                                         x = hist.sub.df[,input$plot_var],
                                                         name = l1) %>%
-                            layout(xaxis = list(title = l1),
+                            plotly::layout(xaxis = list(title = l1),
                                    title = input$plot_var)
 
                         }
@@ -1054,7 +1054,7 @@ server <- function(input, output,session) {
                         dens.df <- data.frame(x = dens$x, y = dens$y)
                         min_y <- 0
                         max_y <- max(dens.df$y)
-                        plot_den <- plot_ly(data = dens.df, x  = ~x,
+                        plot_den <- plotly::plot_ly(data = dens.df, x  = ~x,
                                             y = ~y)
                       } else if(input$plot_factor != "None" &
                                 input$plot_factor != "NA" &
@@ -1067,10 +1067,10 @@ server <- function(input, output,session) {
                           l <- length(plot_list_den)
                           dens <- density(df.den[,input$plot_var])
                           dens.df <- data.frame(x = dens$x, y = dens$y)
-                          plot_list_den[[l + 1]] <- plot_ly(data = dens.df,
+                          plot_list_den[[l + 1]] <- plotly::plot_ly(data = dens.df,
                                                             x = ~x,
                                                             y = ~y)%>%
-                            layout(xaxis = list(title = l2),
+                            plotly::layout(xaxis = list(title = l2),
                                    title = input$plot_var)
                         }
 
@@ -1084,7 +1084,7 @@ server <- function(input, output,session) {
                     "cor" = {
                       c <- NULL
                       c <- round(cor(vis_df$df[, which(colnames(vis_df$df) %in% vis_df$var_numeric)]), 3)
-                      plot_ly(x = vis_df$var_numeric, y = vis_df$var_numeric, z = c,
+                      plotly::plot_ly(x = vis_df$var_numeric, y = vis_df$var_numeric, z = c,
                               key = c, type = "heatmap", source = "heatplot")
                     }
         )
@@ -1095,13 +1095,13 @@ server <- function(input, output,session) {
                             value = as.numeric(vis_df$df))
         p <- switch(input$plot_type,
                     "line" = {
-                      plot_ly( x = time(vis_df$df), y = vis_df$df, type  = "scatter", mode = "line")
+                      plotly::plot_ly( x = time(vis_df$df), y = vis_df$df, type  = "scatter", mode = "line")
                     },
                     "scatter" = {
-                      plot_ly( x = time(vis_df$df), y = vis_df$df, type  = "scatter")
+                      plotly::plot_ly( x = time(vis_df$df), y = vis_df$df, type  = "scatter")
                     },
                     "box" = {
-                      plot_ly(data = ts.df, y = ~ value ,
+                      plotly::plot_ly(data = ts.df, y = ~ value ,
                               color = ~ as.factor(dec_right),
                               type = "box",
                               boxpoints = "all", jitter = 0,
@@ -1111,7 +1111,7 @@ server <- function(input, output,session) {
 
                     "seasonal_plot" = {
                       if(frequency(vis_df$df) == 1){
-                        p <- plot_ly()
+                        p <- plotly::plot_ly()
                         showModal(modalDialog(
                           title = "Warning - Seasonal Plot is Not Available",
                           HTML(paste("Seasonal plot is not available",
@@ -1122,7 +1122,7 @@ server <- function(input, output,session) {
                         p
                       } else {
                         ts.df_wide <- reshape2::dcast(ts.df, dec_right ~ dec_left )
-                        p <- plot_ly()
+                        p <- plotly::plot_ly()
 
                         for(f in 2:ncol(ts.df_wide)){
                           p <- p %>% add_trace(x = ts.df_wide[,1], y = ts.df_wide[,f],
@@ -1142,9 +1142,9 @@ server <- function(input, output,session) {
                         } else {
                           lag <- c(NA,lag[-nrow(ts.df)])
                         }
-                        lag_plots[[g]] <- plot_ly(x = lag, y = ts.df$value,
+                        lag_plots[[g]] <- plotly::plot_ly(x = lag, y = ts.df$value,
                                                   name = paste("Lag", g, sep = " ")) %>%
-                          layout(xaxis = list(title = paste("Lag", g, sep = " "),
+                          plotly::layout(xaxis = list(title = paste("Lag", g, sep = " "),
                                               range = c( min(na.omit(as.numeric(lag))),
                                                          max(na.omit(as.numeric(lag))))),
                                  yaxis = list(title = paste("Series", sep = ""),
@@ -1534,14 +1534,14 @@ server <- function(input, output,session) {
               sh <- as.data.frame(h2o.scoreHistory(h2o_df$model))
 
               # RMSE plot with validation set
-              output$h2o_rf_class_rmse_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_rmse,
+              output$h2o_rf_class_rmse_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_rmse,
                         type = "scatter", mode = "lines+markers", name = "Training",
                         showlegend = TRUE, line = list(color = "rgb(31, 119, 180)", width = 2)) %>%
                   add_trace(x = ~number_of_trees, y =  ~ validation_rmse,
                             type = "scatter", mode = "lines+markers", name = "Validation",
                             showlegend = TRUE, line = list(color = "rgb(255, 127, 14)", width = 2))%>%
-                  layout(
+                  plotly::layout(
                     title = "RMSE Score History",
                     yaxis = list(title = "RMSE", domain = c(0, 0.95)),
                     xaxis = list(title = "Number of Trees", domain = c(0, 0.95))
@@ -1549,14 +1549,14 @@ server <- function(input, output,session) {
               })
 
               # Classification error plot with validation set
-              output$h2o_rf_class_error_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_classification_error,
+              output$h2o_rf_class_error_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_classification_error,
                         type = "scatter", mode = "lines+markers", name = "Training",
                         showlegend = TRUE, line = list(color = "rgb(31, 119, 180)", width = 2)) %>%
                   add_trace(x = ~number_of_trees, y =  ~ validation_classification_error,
                             type = "scatter", mode = "lines+markers", name = "Validation",
                             showlegend = TRUE, line = list(color = "rgb(255, 127, 14)", width = 2)) %>%
-                  layout(
+                  plotly::layout(
                     title = "Classification Error Score History",
                     yaxis = list(title = "Classification Error", domain = c(0, 0.95)),
                     xaxis = list(title = "Number of Trees", domain = c(0, 0.95))
@@ -1566,14 +1566,14 @@ server <- function(input, output,session) {
 
 
               # Logloss plot with validation set
-              output$h2o_rf_class_logloss_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_logloss,
+              output$h2o_rf_class_logloss_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_logloss,
                         type = "scatter", mode = "lines+markers", name = "Training",
                         showlegend = TRUE, line = list(color = "rgb(31, 119, 180)", width = 2)) %>%
                   add_trace(x = ~number_of_trees, y =  ~ validation_logloss,
                             type = "scatter", mode = "lines+markers", name = "Validation",
                             showlegend = TRUE, line = list(color = "rgb(255, 127, 14)", width = 2)) %>%
-                  layout(
+                  plotly::layout(
                     title = "Logloss Score History",
                     yaxis = list(title = "Logloss", domain = c(0, 0.95)),
                     xaxis = list(title = "Number of Trees", domain = c(0, 0.95))
@@ -1581,15 +1581,15 @@ server <- function(input, output,session) {
               })
 
               # Variable importance plot
-              output$h2o_rf_class_var_imp_plot <- renderPlotly({
+              output$h2o_rf_class_var_imp_plot <- plotly::renderPlotly({
                 var_imp <- h2o.varimp(h2o_df$model)
                 var_imp <- var_imp[order(var_imp$scaled_importance),]
                 var_order <- var_imp$variable
                 var_imp$variable <- factor(var_imp$variable, levels = var_order)
-                plot_ly(data = var_imp, y = ~ variable, x = ~ round(scaled_importance,2),
+                plotly::plot_ly(data = var_imp, y = ~ variable, x = ~ round(scaled_importance,2),
                         type = "bar", orientation = 'h'
                 ) %>%
-                  layout(
+                  plotly::layout(
                     title = NULL,
                     yaxis = list(title = ""),
                     xaxis = list(title = "Scaled Importance"),
@@ -1653,12 +1653,12 @@ server <- function(input, output,session) {
               sh <- as.data.frame(h2o.scoreHistory(h2o_df$model))
 
               # RMSE plot with validation set
-              output$h2o_gbm_class_rmse_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_rmse,
+              output$h2o_gbm_class_rmse_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_rmse,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
                   add_trace(x = ~number_of_trees, y =  ~ validation_rmse,
                             type = "scatter", mode = "lines+markers", name = "Validation")%>%
-                  layout(
+                  plotly::layout(
                     title = "RMSE Score History",
                     yaxis = list(title = "RMSE", domain = c(0, 0.95)),
                     xaxis = list(title = "Number of Trees", domain = c(0, 0.95))
@@ -1667,12 +1667,12 @@ server <- function(input, output,session) {
               })
 
               # Classification error plot with validation set
-              output$h2o_gbm_class_error_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_classification_error,
+              output$h2o_gbm_class_error_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_classification_error,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
                   add_trace(x = ~number_of_trees, y =  ~ validation_classification_error,
                             type = "scatter", mode = "lines+markers", name = "Validation")%>%
-                  layout(
+                  plotly::layout(
                     title = "Classification Error Score History",
                     yaxis = list(title = "Classification Error", domain = c(0, 0.95)),
                     xaxis = list(title = "Number of Trees", domain = c(0, 0.95))
@@ -1680,12 +1680,12 @@ server <- function(input, output,session) {
               })
 
               # Logloss plot with validation set
-              output$h2o_gbm_class_logloss_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_logloss,
+              output$h2o_gbm_class_logloss_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_logloss,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
                   add_trace(x = ~number_of_trees, y =  ~ validation_logloss,
                             type = "scatter", mode = "lines+markers", name = "Validation")%>%
-                  layout(
+                  plotly::layout(
                     title = "Logloss Score History",
                     yaxis = list(title = "Logloss", domain = c(0, 0.95)),
                     xaxis = list(title = "Number of Trees", domain = c(0, 0.95))
@@ -1693,15 +1693,15 @@ server <- function(input, output,session) {
               })
 
               # Variable importance plot
-              output$h2o_gbm_class_var_imp_plot <- renderPlotly({
+              output$h2o_gbm_class_var_imp_plot <- plotly::renderPlotly({
                 var_imp <- h2o.varimp(h2o_df$model)
                 var_imp <- var_imp[order(var_imp$scaled_importance),]
                 var_order <- var_imp$variable
                 var_imp$variable <- factor(var_imp$variable, levels = var_order)
-                plot_ly(data = var_imp, y = ~ variable, x = ~ round(scaled_importance,2),
+                plotly::plot_ly(data = var_imp, y = ~ variable, x = ~ round(scaled_importance,2),
                         type = "bar", orientation = 'h'
                 ) %>%
-                  layout(
+                  plotly::layout(
                     title = "GBM - Variable Importance",
                     yaxis = list(title = ""),
                     xaxis = list(title = "Scaled Importance"),
@@ -1770,12 +1770,12 @@ server <- function(input, output,session) {
               sh <- as.data.frame(h2o.scoreHistory(h2o_df$model))
 
               # RMSE plot with validation set
-              output$h2o_dl_class_rmse_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~ epochs, y =  ~ training_rmse,
+              output$h2o_dl_class_rmse_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~ epochs, y =  ~ training_rmse,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
                   add_trace(x = ~ epochs, y =  ~ validation_rmse,
                             type = "scatter", mode = "lines+markers", name = "Validation")%>%
-                  layout(
+                  plotly::layout(
                     title = "RMSE Score History",
                     yaxis = list(title = "RMSE", domain = c(0, 0.95)),
                     xaxis = list(title = "Epochs", domain = c(0, 0.95))
@@ -1784,12 +1784,12 @@ server <- function(input, output,session) {
               })
 
               # Classification error plot with validation set
-              output$h2o_dl_class_error_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~ epochs, y =  ~ training_classification_error,
+              output$h2o_dl_class_error_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~ epochs, y =  ~ training_classification_error,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
                   add_trace(x = ~ epochs, y =  ~ validation_classification_error,
                             type = "scatter", mode = "lines+markers", name = "Validation")%>%
-                  layout(
+                  plotly::layout(
                     title = "Classification Error Score History",
                     yaxis = list(title = "Classification Error", domain = c(0, 0.95)),
                     xaxis = list(title = "Epochs", domain = c(0, 0.95))
@@ -1797,12 +1797,12 @@ server <- function(input, output,session) {
               })
 
               # Logloss plot with validation set
-              output$h2o_dl_class_logloss_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~ epochs, y =  ~ training_logloss,
+              output$h2o_dl_class_logloss_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~ epochs, y =  ~ training_logloss,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
                   add_trace(x = ~ epochs, y =  ~ validation_logloss,
                             type = "scatter", mode = "lines+markers", name = "Validation")%>%
-                  layout(
+                  plotly::layout(
                     title = "Logloss Score History",
                     yaxis = list(title = "Logloss", domain = c(0, 0.95)),
                     xaxis = list(title = "Epochs", domain = c(0, 0.95))
@@ -1810,15 +1810,15 @@ server <- function(input, output,session) {
               })
 
               # Variable importance plot
-              output$h2o_dl_class_var_imp_plot <- renderPlotly({
+              output$h2o_dl_class_var_imp_plot <- plotly::renderPlotly({
                 var_imp <- h2o.varimp(h2o_df$model)
                 var_imp <- var_imp[order(var_imp$scaled_importance),]
                 var_order <- var_imp$variable
                 var_imp$variable <- factor(var_imp$variable, levels = var_order)
-                plot_ly(data = var_imp, y = ~ variable, x = ~ round(scaled_importance,2),
+                plotly::plot_ly(data = var_imp, y = ~ variable, x = ~ round(scaled_importance,2),
                         type = "bar", orientation = 'h'
                 ) %>%
-                  layout(
+                  plotly::layout(
                     title = "Variable Importance",
                     yaxis = list(title = ""),
                     xaxis = list(title = "Scaled Importance"),
@@ -1945,10 +1945,10 @@ server <- function(input, output,session) {
                 cm_fun(train = train_cm$table, test = test_cm$table)
               }
               # RMSE plot without validation set
-              output$h2o_rf_class_rmse_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_rmse,
+              output$h2o_rf_class_rmse_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_rmse,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  layout(
+                  plotly::layout(
                     title = "RMSE Score History",
                     yaxis = list(title = "RMSE", domain = c(0, 0.95)),
                     xaxis = list(title = "Number of Trees", domain = c(0, 0.95))
@@ -1957,10 +1957,10 @@ server <- function(input, output,session) {
 
 
               # Classification error plor without validation set
-              output$h2o_rf_class_error_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_classification_error,
+              output$h2o_rf_class_error_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_classification_error,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  layout(
+                  plotly::layout(
                     title = "Classification Error Score History",
                     yaxis = list(title = "Classification Error", domain = c(0, 0.95)),
                     xaxis = list(title = "Number of Trees", domain = c(0, 0.95))
@@ -1968,10 +1968,10 @@ server <- function(input, output,session) {
               })
 
               # Logloss plot without validation set
-              output$h2o_rf_class_logloss_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_logloss,
+              output$h2o_rf_class_logloss_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_logloss,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  layout(
+                  plotly::layout(
                     title = "Logloss Score History",
                     yaxis = list(title = "Logloss Error", domain = c(0, 0.95)),
                     xaxis = list(title = "Number of Trees", domain = c(0, 0.95))
@@ -1979,15 +1979,15 @@ server <- function(input, output,session) {
               })
 
               # Variable importance plot
-              output$h2o_rf_class_var_imp_plot <- renderPlotly({
+              output$h2o_rf_class_var_imp_plot <- plotly::renderPlotly({
                 var_imp <- h2o.varimp(h2o_df$model)
                 var_imp <- var_imp[order(var_imp$scaled_importance),]
                 var_order <- var_imp$variable
                 var_imp$variable <- factor(var_imp$variable, levels = var_order)
-                plot_ly(data = var_imp, y = ~ variable, x = ~ round(scaled_importance,2),
+                plotly::plot_ly(data = var_imp, y = ~ variable, x = ~ round(scaled_importance,2),
                         type = "bar", orientation = 'h'
                 ) %>%
-                  layout(
+                  plotly::layout(
                     title = "Random Forest - Variable Importance",
                     yaxis = list(title = ""),
                     xaxis = list(title = "Scaled Importance"),
@@ -2043,10 +2043,10 @@ server <- function(input, output,session) {
               sh <- as.data.frame(h2o.scoreHistory(h2o_df$model))
 
               # RMSE plot with validation set
-              output$h2o_gbm_class_rmse_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_rmse,
+              output$h2o_gbm_class_rmse_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_rmse,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  layout(
+                  plotly::layout(
                     title = "RMSE Score History",
                     yaxis = list(title = "RMSE", domain = c(0, 0.95)),
                     xaxis = list(title = "Number of Trees", domain = c(0, 0.95))
@@ -2055,10 +2055,10 @@ server <- function(input, output,session) {
               })
 
               # Classification error plot with validation set
-              output$h2o_gbm_class_error_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_classification_error,
+              output$h2o_gbm_class_error_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_classification_error,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  layout(
+                  plotly::layout(
                     title = "Classification Error Score History",
                     yaxis = list(title = "Classification Error", domain = c(0, 0.95)),
                     xaxis = list(title = "Number of Trees", domain = c(0, 0.95))
@@ -2066,10 +2066,10 @@ server <- function(input, output,session) {
               })
 
               # Logloss plot with validation set
-              output$h2o_gbm_class_logloss_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_logloss,
+              output$h2o_gbm_class_logloss_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_logloss,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  layout(
+                  plotly::layout(
                     title = "Logloss Score History",
                     yaxis = list(title = "Logloss", domain = c(0, 0.95)),
                     xaxis = list(title = "Number of Trees", domain = c(0, 0.95))
@@ -2077,15 +2077,15 @@ server <- function(input, output,session) {
               })
 
               # Variable importance plot
-              output$h2o_gbm_class_var_imp_plot <- renderPlotly({
+              output$h2o_gbm_class_var_imp_plot <- plotly::renderPlotly({
                 var_imp <- h2o.varimp(h2o_df$model)
                 var_imp <- var_imp[order(var_imp$scaled_importance),]
                 var_order <- var_imp$variable
                 var_imp$variable <- factor(var_imp$variable, levels = var_order)
-                plot_ly(data = var_imp, y = ~ variable, x = ~ round(scaled_importance,2),
+                plotly::plot_ly(data = var_imp, y = ~ variable, x = ~ round(scaled_importance,2),
                         type = "bar", orientation = 'h'
                 ) %>%
-                  layout(
+                  plotly::layout(
                     title = "Variable Importance",
                     yaxis = list(title = ""),
                     xaxis = list(title = "Scaled Importance"),
@@ -2205,10 +2205,10 @@ server <- function(input, output,session) {
               sh <- as.data.frame(h2o.scoreHistory(h2o_df$model))
 
               # RMSE plot with validation set
-              output$h2o_dl_class_rmse_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~ epochs, y =  ~ training_rmse,
+              output$h2o_dl_class_rmse_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~ epochs, y =  ~ training_rmse,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  layout(
+                  plotly::layout(
                     title = "RMSE Score History",
                     yaxis = list(title = "RMSE", domain = c(0, 0.95)),
                     xaxis = list(title = "Epochs", domain = c(0, 0.95))
@@ -2217,10 +2217,10 @@ server <- function(input, output,session) {
               })
 
               # Classification error plot with validation set
-              output$h2o_dl_class_error_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~ epochs, y =  ~ training_classification_error,
+              output$h2o_dl_class_error_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~ epochs, y =  ~ training_classification_error,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  layout(
+                  plotly::layout(
                     title = "Classification Error Score History",
                     yaxis = list(title = "Classification Error", domain = c(0, 0.95)),
                     xaxis = list(title = "Epochs", domain = c(0, 0.95))
@@ -2228,10 +2228,10 @@ server <- function(input, output,session) {
               })
 
               # Logloss plot with validation set
-              output$h2o_dl_class_logloss_plot <- renderPlotly({
-                plot_ly(data = sh, x = ~ epochs, y =  ~ training_logloss,
+              output$h2o_dl_class_logloss_plot <- plotly::renderPlotly({
+                plotly::plot_ly(data = sh, x = ~ epochs, y =  ~ training_logloss,
                         type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  layout(
+                  plotly::layout(
                     title = "Logloss Score History",
                     yaxis = list(title = "Logloss", domain = c(0, 0.95)),
                     xaxis = list(title = "Epochs", domain = c(0, 0.95))
@@ -2239,15 +2239,15 @@ server <- function(input, output,session) {
               })
 
               # Variable importance plot
-              output$h2o_dl_class_var_imp_plot <- renderPlotly({
+              output$h2o_dl_class_var_imp_plot <- plotly::renderPlotly({
                 var_imp <- h2o.varimp(h2o_df$model)
                 var_imp <- var_imp[order(var_imp$scaled_importance),]
                 var_order <- var_imp$variable
                 var_imp$variable <- factor(var_imp$variable, levels = var_order)
-                plot_ly(data = var_imp, y = ~ variable, x = ~ round(scaled_importance,2),
+                plotly::plot_ly(data = var_imp, y = ~ variable, x = ~ round(scaled_importance,2),
                         type = "bar", orientation = 'h'
                 ) %>%
-                  layout(
+                  plotly::layout(
                     title = "Variable Importance",
                     yaxis = list(title = ""),
                     xaxis = list(title = "Scaled Importance"),

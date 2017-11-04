@@ -14,10 +14,10 @@ Imports:
   DT (>= 0.2),
   ggplot2 (>= 2.2.1),
   kableExtra (>= 0.4.0),
-  knitr (>= 1.17)
+  knitr (>= 1.17),
+  lubridate (>= 1.6.0),
 Depends:
   dplyr (>= 0.7.2),
-  lubridate (>= 1.6.0),
   plotly (>= 4.7.1),
   reshape2 (>= 1.4.2),
   shinycssloaders (>= 0.2.0),
