@@ -1514,19 +1514,19 @@ server <- function(input, output,session) {
                 object = h2o_df$model,
                 newdata = h2o_df$train))
               train_df <- as.data.frame(h2o_df$train[, h2o_df$y])
-              train_cm <- confusionMatrix(train_pred$predict, train_df[,1])
+              train_cm <- caret::confusionMatrix(train_pred$predict, train_df[,1])
 
               valid_pred <- as.data.frame(h2o.predict(
                 object = h2o_df$model,
                 newdata = h2o_df$valid))
               valid_df <- as.data.frame(h2o_df$valid[, h2o_df$y])
-              valid_cm <- confusionMatrix(valid_pred$predict, valid_df[,1])
+              valid_cm <- caret::confusionMatrix(valid_pred$predict, valid_df[,1])
 
               test_pred <- as.data.frame(h2o.predict(
                 object = h2o_df$model,
                 newdata = h2o_df$test))
               test_df <- as.data.frame(h2o_df$test[, h2o_df$y])
-              test_cm <- confusionMatrix(test_pred$predict, test_df[,1])
+              test_cm <- caret::confusionMatrix(test_pred$predict, test_df[,1])
 
               output$h2o_rf_cm_table  <- function(){
                 cm_fun_v(train = train_cm$table, valid = valid_cm$table, test = test_cm$table)
@@ -1633,19 +1633,19 @@ server <- function(input, output,session) {
                 object = h2o_df$model,
                 newdata = h2o_df$train))
               train_df <- as.data.frame(h2o_df$train[, h2o_df$y])
-              train_cm <- confusionMatrix(train_pred$predict, train_df[,1])
+              train_cm <- caret::confusionMatrix(train_pred$predict, train_df[,1])
 
               valid_pred <- as.data.frame(h2o.predict(
                 object = h2o_df$model,
                 newdata = h2o_df$valid))
               valid_df <- as.data.frame(h2o_df$valid[, h2o_df$y])
-              valid_cm <- confusionMatrix(valid_pred$predict, valid_df[,1])
+              valid_cm <- caret::confusionMatrix(valid_pred$predict, valid_df[,1])
 
               test_pred <- as.data.frame(h2o.predict(
                 object = h2o_df$model,
                 newdata = h2o_df$test))
               test_df <- as.data.frame(h2o_df$test[, h2o_df$y])
-              test_cm <- confusionMatrix(test_pred$predict, test_df[,1])
+              test_cm <- caret::confusionMatrix(test_pred$predict, test_df[,1])
 
               output$h2o_gbm_cm_table  <- function(){
                 cm_fun_v(train = train_cm$table, valid = valid_cm$table, test = test_cm$table)
@@ -1750,19 +1750,19 @@ server <- function(input, output,session) {
                 object = h2o_df$model,
                 newdata = h2o_df$train))
               train_df <- as.data.frame(h2o_df$train[, h2o_df$y])
-              train_cm <- confusionMatrix(train_pred$predict, train_df[,1])
+              train_cm <- caret::confusionMatrix(train_pred$predict, train_df[,1])
 
               valid_pred <- as.data.frame(h2o.predict(
                 object = h2o_df$model,
                 newdata = h2o_df$valid))
               valid_df <- as.data.frame(h2o_df$valid[, h2o_df$y])
-              valid_cm <- confusionMatrix(valid_pred$predict, valid_df[,1])
+              valid_cm <- caret::confusionMatrix(valid_pred$predict, valid_df[,1])
 
               test_pred <- as.data.frame(h2o.predict(
                 object = h2o_df$model,
                 newdata = h2o_df$test))
               test_df <- as.data.frame(h2o_df$test[, h2o_df$y])
-              test_cm <- confusionMatrix(test_pred$predict, test_df[,1])
+              test_cm <- caret::confusionMatrix(test_pred$predict, test_df[,1])
 
               output$h2o_dl_cm_table  <- function(){
                 cm_fun_v(train = train_cm$table, valid = valid_cm$table, test = test_cm$table)
@@ -1870,19 +1870,19 @@ server <- function(input, output,session) {
                 object = h2o_df$model,
                 newdata = h2o_df$train))
               train_df <- as.data.frame(h2o_df$train[, h2o_df$y])
-              train_cm <- confusionMatrix(train_pred$predict, train_df[,1])
+              train_cm <- caret::confusionMatrix(train_pred$predict, train_df[,1])
 
               valid_pred <- as.data.frame(h2o.predict(
                 object = h2o_df$model,
                 newdata = h2o_df$valid))
               valid_df <- as.data.frame(h2o_df$valid[, h2o_df$y])
-              valid_cm <- confusionMatrix(valid_pred$predict, valid_df[,1])
+              valid_cm <- caret::confusionMatrix(valid_pred$predict, valid_df[,1])
 
               test_pred <- as.data.frame(h2o.predict(
                 object = h2o_df$model,
                 newdata = h2o_df$test))
               test_df <- as.data.frame(h2o_df$test[, h2o_df$y])
-              test_cm <- confusionMatrix(test_pred$predict, test_df[,1])
+              test_cm <- caret::confusionMatrix(test_pred$predict, test_df[,1])
 
               output$h2o_glm_cm_table  <- function(){
                 cm_fun_v(train = train_cm$table, valid = valid_cm$table, test = test_cm$table)
@@ -1934,12 +1934,12 @@ server <- function(input, output,session) {
                 object = h2o_df$model,
                 newdata = h2o_df$train))
               train_df <- as.data.frame(h2o_df$train[, h2o_df$y])
-              train_cm <- confusionMatrix(train_pred$predict, train_df[,1])
+              train_cm <- caret::confusionMatrix(train_pred$predict, train_df[,1])
               test_pred <- as.data.frame(h2o.predict(
                 object = h2o_df$model,
                 newdata = h2o_df$test))
               test_df <- as.data.frame(h2o_df$test[, h2o_df$y])
-              test_cm <- confusionMatrix(test_pred$predict, test_df[,1])
+              test_cm <- caret::confusionMatrix(test_pred$predict, test_df[,1])
 
               output$h2o_rf_cm_table <- function(){
                 cm_fun(train = train_cm$table, test = test_cm$table)
@@ -2029,13 +2029,13 @@ server <- function(input, output,session) {
                 object = h2o_df$model,
                 newdata = h2o_df$train))
               train_df <- as.data.frame(h2o_df$train[, h2o_df$y])
-              train_cm <- confusionMatrix(train_pred$predict, train_df[,1])
+              train_cm <- caret::confusionMatrix(train_pred$predict, train_df[,1])
 
               test_pred <- as.data.frame(h2o.predict(
                 object = h2o_df$model,
                 newdata = h2o_df$test))
               test_df <- as.data.frame(h2o_df$test[, h2o_df$y])
-              test_cm <- confusionMatrix(test_pred$predict, test_df[,1])
+              test_cm <- caret::confusionMatrix(test_pred$predict, test_df[,1])
 
               output$h2o_gbm_cm_table  <- function(){
                 cm_fun(train = train_cm$table, test = test_cm$table)
@@ -2137,13 +2137,13 @@ server <- function(input, output,session) {
                 object = h2o_df$model,
                 newdata = h2o_df$train))
               train_df <- as.data.frame(h2o_df$train[, h2o_df$y])
-              train_cm <- confusionMatrix(train_pred$predict, train_df[,1])
+              train_cm <- caret::confusionMatrix(train_pred$predict, train_df[,1])
 
               test_pred <- as.data.frame(h2o.predict(
                 object = h2o_df$model,
                 newdata = h2o_df$test))
               test_df <- as.data.frame(h2o_df$test[, h2o_df$y])
-              test_cm <- confusionMatrix(test_pred$predict, test_df[,1])
+              test_cm <- caret::confusionMatrix(test_pred$predict, test_df[,1])
 
               output$h2o_glm_cm_table  <- function(){
                 cm_fun(train = train_cm$table, test = test_cm$table)
@@ -2191,13 +2191,13 @@ server <- function(input, output,session) {
                 object = h2o_df$model,
                 newdata = h2o_df$train))
               train_df <- as.data.frame(h2o_df$train[, h2o_df$y])
-              train_cm <- confusionMatrix(train_pred$predict, train_df[,1])
+              train_cm <- caret::confusionMatrix(train_pred$predict, train_df[,1])
 
               test_pred <- as.data.frame(h2o.predict(
                 object = h2o_df$model,
                 newdata = h2o_df$test))
               test_df <- as.data.frame(h2o_df$test[, h2o_df$y])
-              test_cm <- confusionMatrix(test_pred$predict, test_df[,1])
+              test_cm <- caret::confusionMatrix(test_pred$predict, test_df[,1])
 
               output$h2o_dl_cm_table  <- function(){
                 cm_fun(train = train_cm$table, test = test_cm$table)
