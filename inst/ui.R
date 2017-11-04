@@ -174,7 +174,7 @@ ui <- dashboardPage(
 
                                    ),
                                    box(width = 4, title = "Variable Summary",
-                                       plotlyOutput("data_tab2_summary_plot",height = 200),
+                                       plotly::plotlyOutput("data_tab2_summary_plot",height = 200),
                                        tableOutput("data_tab2_var_summary")
                                    )
                   ),
@@ -216,7 +216,7 @@ ui <- dashboardPage(
                                          circle = TRUE, status = "danger", icon = icon("gear"), width = "200px",
                                          tooltip = tooltipOptions(title = "Plot Setting")
                                        ),
-                                       plotlyOutput("data_tab2_ts")
+                                       plotly::plotlyOutput("data_tab2_ts")
 
                                    )
                   )
@@ -262,7 +262,7 @@ ui <- dashboardPage(
                                  ),
                                  fluidRow(
                                    box(width = 12, title = "plot",
-                                       withSpinner(plotlyOutput("main_plot"))
+                                       withSpinner(plotly::plotlyOutput("main_plot"))
                                    )
                                  )
                                )
@@ -556,16 +556,16 @@ ui <- dashboardPage(
                                                                    ),
 
                                                                    conditionalPanel(condition = "input.h2o_rf_plots_select == 'var_imp'",
-                                                                                    withSpinner(plotlyOutput("h2o_rf_class_var_imp_plot"))
+                                                                                    withSpinner(plotly::plotlyOutput("h2o_rf_class_var_imp_plot"))
                                                                    ),
                                                                    conditionalPanel(condition = "input.h2o_rf_plots_select == 'rmse'",
-                                                                                    withSpinner(plotlyOutput("h2o_rf_class_rmse_plot"))
+                                                                                    withSpinner(plotly::plotlyOutput("h2o_rf_class_rmse_plot"))
                                                                    ),
                                                                    conditionalPanel(condition = "input.h2o_rf_plots_select == 'class_error'",
-                                                                                    withSpinner(plotlyOutput("h2o_rf_class_error_plot"))
+                                                                                    withSpinner(plotly::plotlyOutput("h2o_rf_class_error_plot"))
                                                                    ),
                                                                    conditionalPanel(condition = "input.h2o_rf_plots_select == 'logloss'",
-                                                                                    withSpinner(plotlyOutput("h2o_rf_class_logloss_plot"))
+                                                                                    withSpinner(plotly::plotlyOutput("h2o_rf_class_logloss_plot"))
                                                                    )
                                                                )
                                                              )
@@ -590,16 +590,16 @@ ui <- dashboardPage(
                                                                    ),
 
                                                                    conditionalPanel(condition = "input.h2o_gbm_plots_select == 'var_imp'",
-                                                                                    withSpinner(plotlyOutput("h2o_gbm_class_var_imp_plot"))
+                                                                                    withSpinner(plotly::plotlyOutput("h2o_gbm_class_var_imp_plot"))
                                                                    ),
                                                                    conditionalPanel(condition = "input.h2o_gbm_plots_select == 'rmse'",
-                                                                                    withSpinner(plotlyOutput("h2o_gbm_class_rmse_plot"))
+                                                                                    withSpinner(plotly::plotlyOutput("h2o_gbm_class_rmse_plot"))
                                                                    ),
                                                                    conditionalPanel(condition = "input.h2o_gbm_plots_select == 'class_error'",
-                                                                                    withSpinner(plotlyOutput("h2o_gbm_class_error_plot"))
+                                                                                    withSpinner(plotly::plotlyOutput("h2o_gbm_class_error_plot"))
                                                                    ),
                                                                    conditionalPanel(condition = "input.h2o_gbm_plots_select == 'logloss'",
-                                                                                    withSpinner(plotlyOutput("h2o_gbm_class_logloss_plot"))
+                                                                                    withSpinner(plotly::plotlyOutput("h2o_gbm_class_logloss_plot"))
                                                                    )
                                                                )
                                                              )
@@ -624,16 +624,16 @@ ui <- dashboardPage(
                                                                    ),
 
                                                                    conditionalPanel(condition = "input.h2o_dl_plots_select == 'var_imp'",
-                                                                                    withSpinner(plotlyOutput("h2o_dl_class_var_imp_plot"))
+                                                                                    withSpinner(plotly::plotlyOutput("h2o_dl_class_var_imp_plot"))
                                                                    ),
                                                                    conditionalPanel(condition = "input.h2o_dl_plots_select == 'rmse'",
-                                                                                    withSpinner(plotlyOutput("h2o_dl_class_rmse_plot"))
+                                                                                    withSpinner(plotly::plotlyOutput("h2o_dl_class_rmse_plot"))
                                                                    ),
                                                                    conditionalPanel(condition = "input.h2o_dl_plots_select == 'class_error'",
-                                                                                    withSpinner(plotlyOutput("h2o_dl_class_error_plot"))
+                                                                                    withSpinner(plotly::plotlyOutput("h2o_dl_class_error_plot"))
                                                                    ),
                                                                    conditionalPanel(condition = "input.h2o_dl_plots_select == 'logloss'",
-                                                                                    withSpinner(plotlyOutput("h2o_dl_class_logloss_plot"))
+                                                                                    withSpinner(plotly::plotlyOutput("h2o_dl_class_logloss_plot"))
                                                                    )
                                                                )
                                                              )
