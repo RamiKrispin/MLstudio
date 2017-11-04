@@ -150,12 +150,12 @@ ui <- dashboardPage(
                                                         conditionalPanel(condition =  "input.class_selection == 'date' && output.loaded_table_flag == '1' && output.class_df_flag == false && input.data_option == 'var_attr'",
                                                                          selectInput('date_format', "Select the Date Format",
                                                                                      list(
-                                                                                       YMD = "ymd",
-                                                                                       YDM = "ydm",
-                                                                                       MYD = "myd",
-                                                                                       MDY = "mdy",
-                                                                                       DMY = "dmy",
-                                                                                       DYM = "dym"
+                                                                                       YMD = "lubridate::ymd",
+                                                                                       YDM = "lubridate::ydm",
+                                                                                       MYD = "lubridate::myd",
+                                                                                       MDY = "lubridate::mdy",
+                                                                                       DMY = "lubridate::dmy",
+                                                                                       DYM = "lubridate::dym"
                                                                                      )),
                                                                          #titlePanel(h5("Date Preview")),
                                                                          tags$h5("Date Preview"),
