@@ -585,7 +585,7 @@ server <- function(input, output,session) {
 
       dplyr_str <- NULL
       dplyr_str <- paste("input_df$df %>% dplyr::group_by(", paste(input$group_by_summary, collapse = ","),
-                         ") %>% dplyr::summarise(Count = dplyr::n())", sep = " ")
+                         ") %>% dplyr::summarise(Count = n())", sep = " ")
 
       dplyr_df$df_summary <- eval(parse(text = dplyr_str))
       output$dplyr_table <- DT::renderDataTable(
@@ -607,7 +607,7 @@ server <- function(input, output,session) {
 
       for(f in input$dplyr_funs){
         if(f == "Count"){
-          sum_str <- c(sum_str, paste(input$summarise_vars, "_count = dplyr::n()", sep = "", collapse = ","))
+          sum_str <- c(sum_str, paste(input$summarise_vars, "_count = n()", sep = "", collapse = ","))
         }
         if(f == "Mean"){
           sum_str <- c(sum_str, paste(input$summarise_vars, "_mean = mean(", input$summarise_vars ," ,na.rm = TRUE)", sep = "", collapse = ","))
@@ -723,7 +723,7 @@ server <- function(input, output,session) {
           row.names(var_s) <- c("Number of Levels")
           names(var_s) <- names(input_df$df)[r1]
           factor.df <- dplyr::group_by(input_df$df, get(names(input_df$df)[r1])) %>%
-            dplyr::summarise(count = dplyr::n())
+            dplyr::summarise(count = n())
           names(factor.df) <- c(names(names(input_df$df)[r1]), "Count")
           p <- plotly::plot_ly(data = factor.df, name = "Levels",
                        x =  ~ get(names(factor.df)[1]),
