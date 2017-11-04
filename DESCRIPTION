@@ -18,10 +18,10 @@ Imports:
   reshape2 (>= 1.4.2),
   lubridate (>= 1.6.0),
   plotly (>= 4.7.1),
-  shinycssloaders (>= 0.2.0)
+  shinycssloaders (>= 0.2.0),
+  shinyWidgets (>= 0.3.6)
 Depends:
   dplyr (>= 0.7.2),
-  shinyWidgets (>= 0.3.6),
   shinydashboard (>= 0.6.1),
   shiny (>= 1.0.5)
 Suggests:

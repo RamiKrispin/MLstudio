@@ -66,12 +66,12 @@ ui <- dashboardPage(
                       conditionalPanel(condition = "input.data_source == 'import'",
 
 
-                                       dropdownButton(
+                                       shinyWidgets::dropdownButton(
                                          fileInput('file1', 'Choose CSV File',
                                                    accept=c('text/csv',
                                                             'text/comma-separated-values,text/plain',
                                                             '.csv')),
-                                         awesomeCheckbox(inputId = "csv_header",
+                                         shinyWidgets::awesomeCheckbox(inputId = "csv_header",
                                                          label = "Header",
                                                          value = TRUE),
                                          radioButtons('sep', 'Separator',
@@ -205,11 +205,11 @@ ui <- dashboardPage(
 
                   conditionalPanel(condition =  "output.loaded_table_flag == '1' && output.class_df_flag == true ",
                                    box(width = 8, title = "Time Series Plot",
-                                       dropdownButton(
+                                       shinyWidgets::dropdownButton(
                                          tags$h3("List of Input"),
-                                         materialSwitch(inputId = "ts_plot_log", label = "Log Transformation",
+                                         shinyWidgets::materialSwitch(inputId = "ts_plot_log", label = "Log Transformation",
                                                         status = "primary", right = FALSE),
-                                         awesomeRadio(inputId = "ts_prep_mode",
+                                         shinyWidgets::awesomeRadio(inputId = "ts_prep_mode",
                                                       label = "Radio buttons",
                                                       choices = c("lines","lines+markers", "markers")
                                                       , selected = "lines"),
@@ -287,7 +287,7 @@ ui <- dashboardPage(
                                                       uiOutput("models1_independent_list")
                                      )
                     ),
-                    awesomeCheckboxGroup(inputId = "model_package",
+                    shinyWidgets::awesomeCheckboxGroup(inputId = "model_package",
                                          label = "Set Packages",
                                          choices = c("H2O"), selected = NULL,
                                          inline = TRUE)
@@ -307,7 +307,7 @@ ui <- dashboardPage(
                                                                           "GBM (H2O)" = "h2o_gbm",
                                                                           "Random Forest (H2O)" = "h2o_rf")
                                                   ),
-                                                  materialSwitch(inputId = "h2o_validation",
+                                                  shinyWidgets::materialSwitch(inputId = "h2o_validation",
                                                                  label = "Add Validation Partition",
                                                                  status = "primary", right = FALSE),
                                                   conditionalPanel(condition = "input.h2o_validation == true",
@@ -318,7 +318,7 @@ ui <- dashboardPage(
                                                                    sliderInput("h2o_split", "Set the Training/Testing Partitions:",
                                                                                min = 0.05, max = 1,
                                                                                value = 0.7)),
-                                                  materialSwitch(inputId = "nfolds_flag",
+                                                  shinyWidgets::materialSwitch(inputId = "nfolds_flag",
                                                                  label = "N-fold Cross-Validation",
                                                                  status = "primary", right = FALSE),
                                                   conditionalPanel(condition = "input.nfolds_flag == true",
@@ -328,7 +328,7 @@ ui <- dashboardPage(
                                               ),
                                               box(width = 4, title = "Model Tuning",
                                                   conditionalPanel( condition = "input.binomial_models == 'h2o_rf'",
-                                                                    dropdownButton(
+                                                                    shinyWidgets::dropdownButton(
                                                                       tags$h4("More Tunning Parameters"),
                                                                       selectInput("rf_histogram_type", "Optimal Split Histogram Type",
                                                                                   choices = c("AUTO" = "AUTO",
@@ -364,7 +364,7 @@ ui <- dashboardPage(
 
                                                   ),
                                                   conditionalPanel( condition = "input.binomial_models == 'h2o_gbm'",
-                                                                    dropdownButton(
+                                                                    shinyWidgets::dropdownButton(
                                                                       tags$h4("More Tunning Parameters"),
                                                                       selectInput("gbm_histogram_type", "Optimal Split Histogram Type",
                                                                                   choices = c("AUTO" = "AUTO",
@@ -409,7 +409,7 @@ ui <- dashboardPage(
                                                     conditionalPanel( condition = "input.binomial_models == 'h2o_dl'",
                                                                       fluidRow(
                                                                         column(width = 2,
-                                                                               dropdownButton(
+                                                                               shinyWidgets::dropdownButton(
                                                                                  tags$h4("Layer Setting"),
                                                                                  sliderInput("h2o_dl_num_hidden", "Number of Hidden Layers",
                                                                                              min = 1, max = 4,
@@ -468,7 +468,7 @@ ui <- dashboardPage(
                                                                                  tooltip = tooltipOptions(title = "Layer Setting ")
                                                                                )),
                                                                         column(width = 2, offset = 2,
-                                                                               dropdownButton(
+                                                                               shinyWidgets::dropdownButton(
                                                                                  tags$h4("Layer Setting"),
                                                                                  circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
                                                                                  tooltip = tooltipOptions(title = "Early Stop")
@@ -490,7 +490,7 @@ ui <- dashboardPage(
                                                   ),
 
                                                   conditionalPanel( condition = "input.binomial_models == 'h2o_glm'",
-                                                                    dropdownButton(
+                                                                    shinyWidgets::dropdownButton(
                                                                       tags$h4("More Tunning Parameters"),
                                                                       selectInput("glm_solver", "Solver",
                                                                                   choices = c("AUTO" = "AUTO",
@@ -510,7 +510,7 @@ ui <- dashboardPage(
                                                                     sliderInput("h2o_glm_alpha", "Alpha Parameter",
                                                                                 min = 0, max = 1,
                                                                                 value = 0.5, step = 0.01),
-                                                                    materialSwitch(inputId = "h2o_glm_lambda_search",
+                                                                    shinyWidgets::materialSwitch(inputId = "h2o_glm_lambda_search",
                                                                                    label = "Lambda Search",
                                                                                    status = "primary", right = FALSE,
                                                                                    value = TRUE),
@@ -542,7 +542,7 @@ ui <- dashboardPage(
                                                                box(width = 4, title = "Confusion Matrix",
                                                                    tableOutput("h2o_rf_cm_table")),
                                                                box(width =  8, title = "Plots",
-                                                                   dropdownButton(
+                                                                   shinyWidgets::dropdownButton(
                                                                      selectInput(inputId = "h2o_rf_plots_select", label = "Select Plot",
                                                                                  choices = c("Variable Importance" = "var_imp",
                                                                                              "RMSE" = "rmse",
@@ -552,7 +552,7 @@ ui <- dashboardPage(
                                                                                  selected = "Variable Importance"
                                                                      ),
                                                                      circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                     tooltip = tooltipOptions(title = "Click to see inputs !")
+                                                                     tooltip = tooltipOptions(title = "Additional Tuning Parameters")
                                                                    ),
 
                                                                    conditionalPanel(condition = "input.h2o_rf_plots_select == 'var_imp'",
@@ -576,7 +576,7 @@ ui <- dashboardPage(
                                                                box(width = 4, title = "Confusion Matrix",
                                                                    tableOutput("h2o_gbm_cm_table")),
                                                                box(width =  8, title = "Plots",
-                                                                   dropdownButton(
+                                                                   shinyWidgets::dropdownButton(
                                                                      selectInput(inputId = "h2o_gbm_plots_select", label = "Select Plot",
                                                                                  choices = c("Variable Importance" = "var_imp",
                                                                                              "RMSE" = "rmse",
@@ -586,7 +586,7 @@ ui <- dashboardPage(
                                                                                  selected = "Variable Importance"
                                                                      ),
                                                                      circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                     tooltip = tooltipOptions(title = "Click to see inputs !")
+                                                                     tooltip = tooltipOptions(title = "Additional Tuning Parameters")
                                                                    ),
 
                                                                    conditionalPanel(condition = "input.h2o_gbm_plots_select == 'var_imp'",
@@ -610,7 +610,7 @@ ui <- dashboardPage(
                                                                box(width = 4, title = "Confusion Matrix",
                                                                    tableOutput("h2o_dl_cm_table")),
                                                                box(width =  8, title = "Plots",
-                                                                   dropdownButton(
+                                                                   shinyWidgets::dropdownButton(
                                                                      selectInput(inputId = "h2o_dl_plots_select", label = "Select Plot",
                                                                                  choices = c("Variable Importance" = "var_imp",
                                                                                              "RMSE" = "rmse",
@@ -620,7 +620,7 @@ ui <- dashboardPage(
                                                                                  selected = "Variable Importance"
                                                                      ),
                                                                      circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                     tooltip = tooltipOptions(title = "Click to see inputs !")
+                                                                     tooltip = tooltipOptions(title = "Additional Tuning Parameters")
                                                                    ),
 
                                                                    conditionalPanel(condition = "input.h2o_dl_plots_select == 'var_imp'",
