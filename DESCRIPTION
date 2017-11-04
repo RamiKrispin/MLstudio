@@ -12,6 +12,7 @@ Imports:
   caret (>= 6.0-76),
   data.table (>= 1.10.4),
   DT (>= 0.2),
+  dplyr (>= 0.7.2),
   ggplot2 (>= 2.2.1),
   kableExtra (>= 0.4.0),
   knitr (>= 1.17),
@@ -21,7 +22,6 @@ Imports:
   shinycssloaders (>= 0.2.0),
   shinyWidgets (>= 0.3.6)
 Depends:
-  dplyr (>= 0.7.2),
   shinydashboard (>= 0.6.1),
   shiny (>= 1.0.5)
 Suggests:
