@@ -759,6 +759,8 @@ server <- function(input, output,session) {
     })
   #------------------------------ Data tab 2 - Midifing Variables Attributes -------------------------------------
   observeEvent(input$var_modify,{
+    print(input_df$df[,r2])
+    print(class(input_df$df[,rs]))
     if(!is.ts(input_df$df)){
       r2 <- input$data_tab2_var_rows_selected
       input_df$df[,r2] <- switch(input$class_selection,
