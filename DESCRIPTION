@@ -10,11 +10,11 @@ Encoding: UTF-8
 LazyData: true
 Imports:
   caret (>= 6.0-76),
-  data.table (>= 1.10.4)
+  data.table (>= 1.10.4),
+  ggplot2 (>= 2.2.1)
 Depends:
   dplyr (>= 0.7.2),
   DT (>= 0.2),
-  ggplot2 (>= 2.2.1),
   kableExtra (>= 0.4.0),
   knitr (>= 1.17),
   lubridate (>= 1.6.0),
