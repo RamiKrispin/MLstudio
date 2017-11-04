@@ -174,7 +174,7 @@ ui <- dashboardPage(
 
                                    ),
                                    box(width = 4, title = "Variable Summary",
-                                       plotly::plotlyOutput("data_tab2_summary_plot",height = 200),
+                                       shinycssloaders::withSpinner(plotly::plotlyOutput("data_tab2_summary_plot",height = 200)),
                                        tableOutput("data_tab2_var_summary")
                                    )
                   ),
@@ -216,7 +216,7 @@ ui <- dashboardPage(
                                          circle = TRUE, status = "danger", icon = icon("gear"), width = "200px",
                                          tooltip = shinyWidgets::tooltipOptions(title = "Plot Setting")
                                        ),
-                                       plotly::plotlyOutput("data_tab2_ts")
+                                       shinycssloaders::withSpinner(plotly::plotlyOutput("data_tab2_ts"))
 
                                    )
                   )
