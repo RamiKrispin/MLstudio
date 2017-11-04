@@ -1042,7 +1042,7 @@ server <- function(input, output,session) {
                                    title = input$plot_var)
 
                         }
-                        p_hist <- subplot(plot_list, titleX = TRUE, shareX = TRUE) %>%
+                        p_hist <- plotly::subplot(plot_list, titleX = TRUE, shareX = TRUE) %>%
                           hide_legend()
                       }
                       p_hist
@@ -1074,7 +1074,7 @@ server <- function(input, output,session) {
                                    title = input$plot_var)
                         }
 
-                        plot_den <- subplot(plot_list_den, titleX = TRUE, shareX = TRUE)%>%
+                        plot_den <- plotly::subplot(plot_list_den, titleX = TRUE, shareX = TRUE)%>%
                           hide_legend()
                       }
                       plot_den
@@ -1165,7 +1165,7 @@ server <- function(input, output,session) {
                           )
                       }
 
-                      subplot(lag_plots,
+                      plotly::subplot(lag_plots,
                               titleX = FALSE, titleY = TRUE,
                               shareX = FALSE, shareY = FALSE,
                               margin = 0.05,
