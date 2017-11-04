@@ -19,7 +19,6 @@ Imports:
   reshape2 (>= 1.4.2)
 Depends:
   dplyr (>= 0.7.2),
-  
   plotly (>= 4.7.1),
   shinycssloaders (>= 0.2.0),
   shinyWidgets (>= 0.3.6),
