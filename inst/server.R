@@ -2279,5 +2279,4 @@ server <- function(input, output,session) {
 
   #------------------------------ Server Function - End -------------------------------------
 }
-#------------------------------ Call the App -------------------------------------
-shinyApp(ui = ui, server = server)
+

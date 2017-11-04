@@ -9,7 +9,8 @@ License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports:
-  caret (>= 6.0-76),
+  caret (>= 6.0-76)
+Depends:
   data.table (>= 1.10.4),
   dplyr (>= 0.7.2),
   DT (>= 0.2),
@@ -20,8 +21,7 @@ Imports:
   plotly (>= 4.7.1),
   reshape2 (>= 1.4.2),
   shinycssloaders (>= 0.2.0),
-  shinyWidgets (>= 0.3.4),
-Depends:
+  shinyWidgets (>= 0.3.6),
   shinydashboard (>= 0.6.1),
   shiny (>= 1.0.5)
 Suggests:
