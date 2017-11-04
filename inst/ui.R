@@ -19,7 +19,21 @@ ui <- dashboardPage(
     #------------------------------ Tags Style -------------------------------------
     tags$style(type="text/css",
                ".shiny-output-error { visibility: hidden; }",
-               ".shiny-output-error:before { visibility: hidden; }"
+               ".shiny-output-error:before { visibility: hidden; }",
+               "
+               .selectize-dropdown-content {
+               max-height: 300px;
+               overflow-y: auto;
+               background: ghostwhite;
+               }
+               "
+               ,
+               "
+               select ~ .selectize-control .selectize-input {
+               max-height: 100px;
+               overflow-y: auto;
+               }
+               "
     ),
     #------------------------------ Tabs Start -------------------------------------
     tabItems(
@@ -279,7 +293,7 @@ ui <- dashboardPage(
                                          inline = TRUE)
 
                 ),
-                conditionalPanel(condition = "output.dep_var_class == '1' && output.h2o_flag == '1'",
+                conditionalPanel(condition = "output.dep_var_class == '1' && output.h2o_flag == '1' && output.model_tab_ind == '1'",
                                  tabBox(
                                    title = "Model Setting & Output", width = 10,
                                    id = "class_setting", height = "500px",
@@ -633,6 +647,8 @@ ui <- dashboardPage(
 
       )
       #------------------------------ Tabs Classification End-------------------------------------
+
+
+    )
     )
   )
-)
