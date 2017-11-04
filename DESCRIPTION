@@ -17,10 +17,10 @@ Imports:
   knitr (>= 1.17),
   reshape2 (>= 1.4.2),
   lubridate (>= 1.6.0),
-  plotly (>= 4.7.1)
+  plotly (>= 4.7.1),
+  shinycssloaders (>= 0.2.0)
 Depends:
   dplyr (>= 0.7.2),
-  shinycssloaders (>= 0.2.0),
   shinyWidgets (>= 0.3.6),
   shinydashboard (>= 0.6.1),
   shiny (>= 1.0.5)
