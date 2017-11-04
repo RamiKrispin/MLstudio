@@ -112,6 +112,6 @@ installed_datasets <- as.list(paste(dataset.df$package,"-" ,dataset.df$dataset.f
 #------------------------------ Creating list of the avilable data frames/matrices/ time series -------------------------------------
 df_list <- c(names(which(sapply(.GlobalEnv, is.data.frame))),
              names(which(sapply(.GlobalEnv, is.matrix))),
-             names(which(sapply(.GlobalEnv, is.data.table)))
+             names(which(sapply(.GlobalEnv, data.table::is.data.table)))
 )
 ts_list <- c(names(which(sapply(.GlobalEnv, is.ts))))
