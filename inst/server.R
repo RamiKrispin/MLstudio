@@ -731,7 +731,7 @@ server <- function(input, output,session) {
                        type = "bar") %>%
             plotly::layout(yaxis = list(title = "Count"),
                    xaxis = list(title = "Levels"))
-        } else if(is.Date(input_df$df[, r1])){
+        } else if(lubridate::is.Date(input_df$df[, r1])){
           var_s <- NULL
           var_s <- data.frame(c(as.character(min(input_df$df[, r1])),
                                 as.character(max(input_df$df[, r1]))), row.names = c("Start/Min Date", "End/Max Date"))

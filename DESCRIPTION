@@ -15,9 +15,9 @@ Imports:
   ggplot2 (>= 2.2.1),
   kableExtra (>= 0.4.0),
   knitr (>= 1.17),
-  lubridate (>= 1.6.0),
   reshape2 (>= 1.4.2)
 Depends:
+  lubridate (>= 1.6.0),
   dplyr (>= 0.7.2),
   plotly (>= 4.7.1),
   shinycssloaders (>= 0.2.0),
