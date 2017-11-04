@@ -86,7 +86,7 @@ ui <- dashboardPage(
                                                       '"'),
                                          circle = TRUE, status = "danger",
                                          icon = icon("file-text", lib = "font-awesome"), width = "300px",
-                                         tooltip = tooltipOptions(title = "Click to set csv file parameters !")
+                                         tooltip = shinyWidgets::tooltipOptions(title = "Click to set csv file parameters !")
                                        )
                       )
 
@@ -214,7 +214,7 @@ ui <- dashboardPage(
                                                       choices = c("lines","lines+markers", "markers")
                                                       , selected = "lines"),
                                          circle = TRUE, status = "danger", icon = icon("gear"), width = "200px",
-                                         tooltip = tooltipOptions(title = "Plot Setting")
+                                         tooltip = shinyWidgets::tooltipOptions(title = "Plot Setting")
                                        ),
                                        plotly::plotlyOutput("data_tab2_ts")
 
@@ -352,7 +352,7 @@ ui <- dashboardPage(
                                                                                   value = 0.632, step = 0.01
                                                                       ),
                                                                       circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                      tooltip = tooltipOptions(title = "More Tunning ")
+                                                                      tooltip = shinyWidgets::tooltipOptions(title = "More Tunning ")
                                                                     ),
                                                                     sliderInput("h2o_rf_ntree", "Number of Trees",
                                                                                 min = 25, max = 1000,
@@ -392,7 +392,7 @@ ui <- dashboardPage(
                                                                                   value = 1e-10
                                                                       ),
                                                                       circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                      tooltip = tooltipOptions(title = "More Tunning ")
+                                                                      tooltip = shinyWidgets::tooltipOptions(title = "More Tunning ")
                                                                     ),
                                                                     sliderInput("h2o_gbm_ntree", "Number of Trees",
                                                                                 min = 25, max = 1000,
@@ -465,13 +465,13 @@ ui <- dashboardPage(
                                                                                  ),
 
                                                                                  circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                                 tooltip = tooltipOptions(title = "Layer Setting ")
+                                                                                 tooltip = shinyWidgets::tooltipOptions(title = "Layer Setting ")
                                                                                )),
                                                                         column(width = 2, offset = 2,
                                                                                shinyWidgets::dropdownButton(
                                                                                  tags$h4("Layer Setting"),
                                                                                  circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                                 tooltip = tooltipOptions(title = "Early Stop")
+                                                                                 tooltip = shinyWidgets::tooltipOptions(title = "Early Stop")
                                                                                ))),
 
                                                                       sliderInput("h2o_dl_epochs", "Number of Epochs",
@@ -505,7 +505,7 @@ ui <- dashboardPage(
                                                                                   min = 10, max = 1000,
                                                                                   value = 50, step = 10),
                                                                       circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                      tooltip = tooltipOptions(title = "More Tunning ")
+                                                                      tooltip = shinyWidgets::tooltipOptions(title = "More Tunning ")
                                                                     ),
                                                                     sliderInput("h2o_glm_alpha", "Alpha Parameter",
                                                                                 min = 0, max = 1,
@@ -552,7 +552,7 @@ ui <- dashboardPage(
                                                                                  selected = "Variable Importance"
                                                                      ),
                                                                      circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                     tooltip = tooltipOptions(title = "Additional Tuning Parameters")
+                                                                     tooltip = shinyWidgets::tooltipOptions(title = "Additional Tuning Parameters")
                                                                    ),
 
                                                                    conditionalPanel(condition = "input.h2o_rf_plots_select == 'var_imp'",
@@ -586,7 +586,7 @@ ui <- dashboardPage(
                                                                                  selected = "Variable Importance"
                                                                      ),
                                                                      circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                     tooltip = tooltipOptions(title = "Additional Tuning Parameters")
+                                                                     tooltip = shinyWidgets::tooltipOptions(title = "Additional Tuning Parameters")
                                                                    ),
 
                                                                    conditionalPanel(condition = "input.h2o_gbm_plots_select == 'var_imp'",
@@ -620,7 +620,7 @@ ui <- dashboardPage(
                                                                                  selected = "Variable Importance"
                                                                      ),
                                                                      circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                     tooltip = tooltipOptions(title = "Additional Tuning Parameters")
+                                                                     tooltip = shinyWidgets::tooltipOptions(title = "Additional Tuning Parameters")
                                                                    ),
 
                                                                    conditionalPanel(condition = "input.h2o_dl_plots_select == 'var_imp'",
