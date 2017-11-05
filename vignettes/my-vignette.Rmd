@@ -32,12 +32,12 @@ runML()
 ```
 
 ### **Data**
-####**Loading Data**
+#### **Loading Data**
 There are three methods to load dataset into the platform:
 
 1.	Loading dataset from the R environment, currently supporting data frame, data table, and matrix and ts objects.
 
-![]("https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Load_from_R.gif")
+![](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Load_from_R.gif)
 
 2.	Loading the available dataset within installed packages, supporting data frame, data table, and matrix and ts objects.
 
