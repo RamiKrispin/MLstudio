@@ -86,3 +86,22 @@ Utilizing Plotly interactive data visualization tools along with Shiny engine, t
 
 ![Visualization of the AirPassengers datasets](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Data_Vis_ts.gif)
 
+### **Models**
+
+The models applications of the ML Studio is still under development and currently available four classification models from the H2O package (Deep Learning, GBM, GLM and Random Forest).
+
+![Classification model for the GermanCredit dataset](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Model.gif)
+
+Features that under development:
+
+1. Machine learning applications:
+- In depth model summary
+- Ability to compare, select and save models
+- Regression models
+- The caret function and models
+- H2O grid search and autoML
+- Deep learning models with Keras
+
+2. Time series and forecasting:
+- Tools for time series analysis
+- Forecasting models with the forecast package
