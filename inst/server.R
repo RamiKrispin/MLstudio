@@ -1127,7 +1127,7 @@ server <- function(input, output,session) {
                         p <- plotly::plot_ly()
 
                         for(f in 2:ncol(ts.df_wide)){
-                          p <- p %>% add_trace(x = ts.df_wide[,1], y = ts.df_wide[,f],
+                          p <- p %>% plotly::add_trace(x = ts.df_wide[,1], y = ts.df_wide[,f],
                                                name = paste("time", names(ts.df_wide)[f], sep = " " ),
                                                mode = "line")
                         }
@@ -1540,7 +1540,7 @@ server <- function(input, output,session) {
                 plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_rmse,
                                 type = "scatter", mode = "lines+markers", name = "Training",
                                 showlegend = TRUE, line = list(color = "rgb(31, 119, 180)", width = 2)) %>%
-                  add_trace(x = ~number_of_trees, y =  ~ validation_rmse,
+                  plotly::add_trace(x = ~number_of_trees, y =  ~ validation_rmse,
                             type = "scatter", mode = "lines+markers", name = "Validation",
                             showlegend = TRUE, line = list(color = "rgb(255, 127, 14)", width = 2))%>%
                   plotly::layout(
@@ -1555,7 +1555,7 @@ server <- function(input, output,session) {
                 plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_classification_error,
                                 type = "scatter", mode = "lines+markers", name = "Training",
                                 showlegend = TRUE, line = list(color = "rgb(31, 119, 180)", width = 2)) %>%
-                  add_trace(x = ~number_of_trees, y =  ~ validation_classification_error,
+                  plotly::add_trace(x = ~number_of_trees, y =  ~ validation_classification_error,
                             type = "scatter", mode = "lines+markers", name = "Validation",
                             showlegend = TRUE, line = list(color = "rgb(255, 127, 14)", width = 2)) %>%
                   plotly::layout(
@@ -1572,7 +1572,7 @@ server <- function(input, output,session) {
                 plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_logloss,
                                 type = "scatter", mode = "lines+markers", name = "Training",
                                 showlegend = TRUE, line = list(color = "rgb(31, 119, 180)", width = 2)) %>%
-                  add_trace(x = ~number_of_trees, y =  ~ validation_logloss,
+                  plotly::add_trace(x = ~number_of_trees, y =  ~ validation_logloss,
                             type = "scatter", mode = "lines+markers", name = "Validation",
                             showlegend = TRUE, line = list(color = "rgb(255, 127, 14)", width = 2)) %>%
                   plotly::layout(
@@ -1658,7 +1658,7 @@ server <- function(input, output,session) {
               output$h2o_gbm_class_rmse_plot <- plotly::renderPlotly({
                 plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_rmse,
                                 type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  add_trace(x = ~number_of_trees, y =  ~ validation_rmse,
+                  plotly::add_trace(x = ~number_of_trees, y =  ~ validation_rmse,
                             type = "scatter", mode = "lines+markers", name = "Validation")%>%
                   plotly::layout(
                     title = "RMSE Score History",
@@ -1672,7 +1672,7 @@ server <- function(input, output,session) {
               output$h2o_gbm_class_error_plot <- plotly::renderPlotly({
                 plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_classification_error,
                                 type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  add_trace(x = ~number_of_trees, y =  ~ validation_classification_error,
+                  plotly::add_trace(x = ~number_of_trees, y =  ~ validation_classification_error,
                             type = "scatter", mode = "lines+markers", name = "Validation")%>%
                   plotly::layout(
                     title = "Classification Error Score History",
@@ -1685,7 +1685,7 @@ server <- function(input, output,session) {
               output$h2o_gbm_class_logloss_plot <- plotly::renderPlotly({
                 plotly::plot_ly(data = sh, x = ~number_of_trees, y =  ~ training_logloss,
                                 type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  add_trace(x = ~number_of_trees, y =  ~ validation_logloss,
+                  plotly::add_trace(x = ~number_of_trees, y =  ~ validation_logloss,
                             type = "scatter", mode = "lines+markers", name = "Validation")%>%
                   plotly::layout(
                     title = "Logloss Score History",
@@ -1775,7 +1775,7 @@ server <- function(input, output,session) {
               output$h2o_dl_class_rmse_plot <- plotly::renderPlotly({
                 plotly::plot_ly(data = sh, x = ~ epochs, y =  ~ training_rmse,
                                 type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  add_trace(x = ~ epochs, y =  ~ validation_rmse,
+                  plotly::add_trace(x = ~ epochs, y =  ~ validation_rmse,
                             type = "scatter", mode = "lines+markers", name = "Validation")%>%
                   plotly::layout(
                     title = "RMSE Score History",
@@ -1789,7 +1789,7 @@ server <- function(input, output,session) {
               output$h2o_dl_class_error_plot <- plotly::renderPlotly({
                 plotly::plot_ly(data = sh, x = ~ epochs, y =  ~ training_classification_error,
                                 type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  add_trace(x = ~ epochs, y =  ~ validation_classification_error,
+                  plotly::add_trace(x = ~ epochs, y =  ~ validation_classification_error,
                             type = "scatter", mode = "lines+markers", name = "Validation")%>%
                   plotly::layout(
                     title = "Classification Error Score History",
@@ -1802,7 +1802,7 @@ server <- function(input, output,session) {
               output$h2o_dl_class_logloss_plot <- plotly::renderPlotly({
                 plotly::plot_ly(data = sh, x = ~ epochs, y =  ~ training_logloss,
                                 type = "scatter", mode = "lines+markers", name = "Training") %>%
-                  add_trace(x = ~ epochs, y =  ~ validation_logloss,
+                  plotly::add_trace(x = ~ epochs, y =  ~ validation_logloss,
                             type = "scatter", mode = "lines+markers", name = "Validation")%>%
                   plotly::layout(
                     title = "Logloss Score History",

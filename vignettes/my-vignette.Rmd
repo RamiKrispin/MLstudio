@@ -41,9 +41,9 @@ Under the “Data” tab there are two sub-tabs:
 
 2.	**Prep** – data prep tools:
 
-* Variables summary
-* Ability to modify the variables attributes 
-* dplyr data summary
+- Variables summary
+- Ability to modify the variables attributes 
+- dplyr data summary
 
 
 #### **Loading Data**
@@ -73,3 +73,15 @@ The variables attribution can be seen in the “Prep” tab in the middle table,
 A data summary function is available on the “Prep” tab under the “Select Option” dropdown menu. This is a dplyr based function and it is provide the ability to summaries data by a specific group. Currently there summaries categories are – count, mean, sd, max and mean.
 
 ![diamonds dataset - price summary by cut](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Data_Summary.gif)
+
+### **Visualization**
+
+Utilizing Plotly interactive data visualization tools along with Shiny engine, the ML Studio provides the user with effective tool for data exploration. The "Visualization" tab provides key functionality:
+
+- Application for multivariate visualization – scatter, line, boxplot histogram, density, and correlation plots
+
+![Visualization of the diamonds and iris datasets](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Data_Vis.gif)
+
+- Application for time series visualization - seasonality, boxplot and lags plots
+
+
