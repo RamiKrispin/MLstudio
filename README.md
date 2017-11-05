@@ -14,7 +14,7 @@ Currently available features:
 - Time series plots – seasonality, correlation etc.
 3. Machine learning and deep learning algorithms with the H2O package, currently only classification models available (Deep Learning, Random Forest, GBM, GLM)
 
-Under construction features:
+**Under construction features:**
 1. Machine learning - 
   - Regression models
   - The caret function and models 
