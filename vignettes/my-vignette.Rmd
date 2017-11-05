@@ -8,120 +8,25 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+## **Overview**
 
-The ML Studio package is a Shiny based platform for statistical modeling and machine learning applications. The package is under construction and currently is available for download throw github. 
+The ML Studio is an interactive platform for data visualization, statistical modeling and machine learning applications. Based on [Shiny](http://shiny.rstudio.com/) and [shinydashboard](https://rstudio.github.io/shinydashboard/) interface, with [Plotly](https://plot.ly/r/) interactive data visualization, [DT](https://rstudio.github.io/DT/) HTML tables and [H2O](https://www.h2o.ai/) machine learning and deep learning algorithms, the ML Studio provides a set of tools for the data science pipeline workflow.
  
-## **Current features:**
+### **Installation**
 
-1. Data Management:
+The package is available for installation with the devtools package (if devetools package is not installed please use `install.packages("devtools")` to install it).
 
-* Ability to load data from multiple sources (csv file, R global environment, R datasets)
-
-* Summary data with dplyr based function
-
-* Control and modify variables attributes 
-
-2. Interactive data visualization with based on the Plotly package:
-
-* Scatter, line, histogram correlation, etc.
-
-* Time series plots – seasonality, correlation etc.
-
-3. Machine learning and deep learning algorithms with the H2O package, currently only classification models available (Deep Learning, Random Forest, GBM, GLM)
-
-## **Under construction features:**
-
-1. Additional regression and classification and deep learning models with caret, H2O and Keras
-
-2. Time series analysis and forecasting models with the forecast package
-
-3. Cluster analysis 
-
-4. Parameters tuning with grid search
-
-5. Ability to communicate model results
-
-## Get start
-
-Until the devtool version of the package will be ready, the package can be sourced from github. The key requirements prior for sourcing the package from github is the Shiny and H2O packages:
-
-Installing shiny is straightforward using the code below:
-
-```{r eval=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-install.packages("shiny")
+```r
+# Install the MLstudio
+devtools::install_github("RamiKrispin/MLstudio")
 ```
+Please note – the H2O package may require additional Java adds-in (if not installed) and therefor is listed under the “Suggests” packages list of the MLstudio package (and not under the Imports or Depends list) and won’t be installed automatically during the installation of the MLstudio package. More information about the installation of H2O can be find in [H2O documentation](http://h2o-release.s3.amazonaws.com/h2o/rel-weierstrass/7/index.html) (under the "INSTALL IN R" tab).
 
-The installation of H2O can be done with the following code:
+### **Getting start**
 
-```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
-# The following two commands remove any previously installed H2O packages for R.
-if ("package:h2o" %in% search()) { detach("package:h2o", unload=TRUE) }
-if ("h2o" %in% rownames(installed.packages())) { remove.packages("h2o") }
+The app is called from R and opened on the default web browser (running best on Google Chrome). To open the app please use:
 
-# Next, we download packages that H2O depends on.
-pkgs <- c("statmod","RCurl","jsonlite")
-for (pkg in pkgs) {
-if (! (pkg %in% rownames(installed.packages()))) { install.packages(pkg) }
-}
-
-# Now we download, install and initialize the H2O package for R.
-install.packages("h2o", type="source", repos="https://h2o-release.s3.amazonaws.com/h2o/rel-weierstrass/7/R")
-
-# Finally, let's load H2O and start up an H2O cluster
-library(h2o)
-h2o.init()
+```r
+# Open the MLstudio
+runML()
 ```
-
-Java add-ons may be required, additional information about download and installation option of H2O is available [here](https://h2o-release.s3.amazonaws.com/h2o/rel-weierstrass/7/index.html).
-
-
-
-
-
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
-
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
-
-## Vignette Info
-
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
-
-## Styles
-
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
-
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r fig.show='hold', message=FALSE, warning=FALSE, paged.print=FALSE}
-plot(1:10)
-plot(10:1)
-```
-
-You can enable figure captions by `fig_caption: yes` in YAML:
-
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
-
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
-```
-
-Also a quote using `>`:
-
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))

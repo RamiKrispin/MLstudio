@@ -1,11 +1,11 @@
-#' Lunch the ML Studio package
+#' Luanch the ML Studio app in the default browser
 #'
-#' @param launch.browser A Boolean variable, if true will lunch the app on a web browser (default is “TRUE”)
 #' @examples
-#' MLstudio(launch.browser = TRUE)
-
-runML <- function(launch.browser = TRUE){
-
-    shiny::runApp(system.file(package = "MLstudio"), launch.browser = launch.browser)
-
+#' runML()
+#' @details For more details please check the github page: https://github.com/RamiKrispin/MLstudio
+#'
+runML <- function(){
+  suppressPackageStartupMessages(
+    shiny::runApp(system.file(package = "MLstudio"), launch.browser = TRUE)
+)
 }

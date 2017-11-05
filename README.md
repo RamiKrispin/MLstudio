@@ -16,6 +16,7 @@ The ML Studio is an interactive platform for data visualization, statistical mod
 
 ### **Under construction features:**
 1. Machine learning -
+  - In depth model summary
   - Ability to compare, select and save models 
   - Regression models
   - The caret function and models 
