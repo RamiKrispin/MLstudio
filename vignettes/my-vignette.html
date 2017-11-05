@@ -77,18 +77,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="overview" class="section level2">
 <h2><strong>Overview</strong></h2>
 <p>The ML Studio is an interactive platform for data visualization, statistical modeling and machine learning applications. Based on <a href="http://shiny.rstudio.com/">Shiny</a> and <a href="https://rstudio.github.io/shinydashboard/">shinydashboard</a> interface, with <a href="https://plot.ly/r/">Plotly</a> interactive data visualization, <a href="https://rstudio.github.io/DT/">DT</a> HTML tables and <a href="https://www.h2o.ai/">H2O</a> machine learning and deep learning algorithms, the ML Studio provides a set of tools for the data science pipeline workflow.</p>
-<div id="installation" class="section level3">
-<h3><strong>Installation</strong></h3>
+</div>
+<div id="installation" class="section level2">
+<h2><strong>Installation</strong></h2>
 <p>The package is available for installation with the devtools package (if devetools package is not installed please use <code>install.packages(&quot;devtools&quot;)</code> to install it).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install the MLstudio</span>
 devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;RamiKrispin/MLstudio&quot;</span>)</code></pre></div>
 <p>Please note – the H2O package may require additional Java adds-in (if not installed) and therefor is listed under the “Suggests” packages list of the MLstudio package (and not under the Imports or Depends list) and won’t be installed automatically during the installation of the MLstudio package. More information about the installation of H2O can be find in <a href="http://h2o-release.s3.amazonaws.com/h2o/rel-weierstrass/7/index.html">H2O documentation</a> (under the “INSTALL IN R” tab).</p>
 </div>
-<div id="getting-start" class="section level3">
-<h3><strong>Getting start</strong></h3>
+<div id="getting-start" class="section level2">
+<h2><strong>Getting Start</strong></h2>
+<div id="launch-the-app" class="section level3">
+<h3><strong>Launch the App</strong></h3>
 <p>The app is called from R and opened on the default web browser (running best on Google Chrome). To open the app please use:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Open the MLstudio</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Launch the MLstudio</span>
 <span class="kw">runML</span>()</code></pre></div>
+</div>
+<div id="data" class="section level3">
+<h3><strong>Data</strong></h3>
+<div id="loading-data" class="section level4">
+<h4><strong>Loading Data</strong></h4>
+<p>There are three methods to load dataset into the platform:</p>
+<ol style="list-style-type: decimal">
+<li><p>Loading dataset from the R environment, currently supporting data frame, data table, and matrix and ts objects.</p></li>
+<li><p>Loading the available dataset within installed packages, supporting data frame, data table, and matrix and ts objects.</p></li>
+<li><p>Loading from csv file.</p></li>
+</ol>
+</div>
 </div>
 </div>
 

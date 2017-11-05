@@ -38,11 +38,11 @@ devtools::install_github("RamiKrispin/MLstudio")
 ```
 Please note – the H2O package may require additional Java adds-in (if not installed) and therefor is listed under the “Suggests” packages list of the MLstudio package (and not under the Imports or Depends list) and won’t be installed automatically during the installation of the MLstudio package. More information about the installation of H2O can be find in [H2O documentation](http://h2o-release.s3.amazonaws.com/h2o/rel-weierstrass/7/index.html) (under the "INSTALL IN R" tab).
 
-### **Run the app**
+### **Launch the App**
 
 The app is called from R and opened on the default web browser (running best on Google Chrome). To open the app please use:
 
 ```r
-# Open the MLstudio
+# Launch the MLstudio
 runML()
 ```
