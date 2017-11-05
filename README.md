@@ -4,7 +4,7 @@
 
 The ML Studio is an interactive platform for data visualization, statistical modeling and machine learning applications. Based on [Shiny](http://shiny.rstudio.com/) and [shinydashboard](https://rstudio.github.io/shinydashboard/) interface, with [Plotly](https://plot.ly/r/) interactive data visualization, [DT](https://rstudio.github.io/DT/) HTML tables and [H2O](https://www.h2o.ai/) machine learning and deep learning algorithms, the ML Studio provides a set of tools for the data science pipeline workflow. More details available on the package [vignette](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/my-vignette.Rmd).
 
-![The ML Studio package](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/MLstudio.gif)
+![The ML Studio package](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/MLStudio.gif)
 
 ### **Currently available features:**
 1. Data Management -
