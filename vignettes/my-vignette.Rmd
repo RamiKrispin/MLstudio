@@ -84,4 +84,5 @@ Utilizing Plotly interactive data visualization tools along with Shiny engine, t
 
 - Application for time series visualization - seasonality, boxplot and lags plots
 
+![Visualization of the AirPassengers datasets](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Data_Vis_ts.gif)
 
