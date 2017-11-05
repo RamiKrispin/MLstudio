@@ -32,17 +32,37 @@ runML()
 ```
 
 ### **Data**
+
+The ML Studio provide the user with the ability to load (or remove), modify, visualize and analyze multiple dataset at the same time.
+
+Under the “Data” tab there are two sub-tabs:
+
+1.	**Load** – set of tools to load data into the platform (from R environment, R datasets and/or csv file)
+
+2.	**Prep** – data prep tools:
+
+* Variables summary
+* Ability to modify the variables attributes 
+* dplyr data summary
+
+
 #### **Loading Data**
 There are three methods to load dataset into the platform:
 
 1.	Loading dataset from the R environment, currently supporting data frame, data table, and matrix and ts objects.
 
-![](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Load_from_R.gif)
+![Loading dataset from R enironment](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Load_from_R.gif)
 
 2.	Loading the available dataset within installed packages, supporting data frame, data table, and matrix and ts objects.
 
-![](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Installed_R_Datasets.gif)
+![Loading the diamond dataset from the ggplot2's datasets](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Installed_R_Datasets.gif)
 
 3.	Loading from csv file.
 
-![](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Load_CSV.gif)
+![Loading the Kaggle's Titanic train set from a csv file](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Load_CSV.gif)
+
+#### **Data Attribution**
+
+The variables attribution can be seen in the “Prep” tab in the middle table, a more in depth summary available on the variable summary box. Using the variable attributes option, it is possible to modify if needed the variables attributes. Below can be find an interactive table, the fields can be sort and a search option is available. 
+
+![Variables summary and attribution changing](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Data_Prep.gif)
