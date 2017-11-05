@@ -4,7 +4,7 @@
 
 The ML Studio is an interactive platform for data visualization, statistical modeling and machine learning applications. Based on Shiny and shinydashboard interface, with Plotly interactive data visualization, DT HTML tables and H2O machine learning and deep learning algorithms, the ML Studio provide toolbox for the data science pipeline workflow.
 
-Currently available features:
+### **Currently available features:**
 1. Data Management -
   - Ability to load data from installed R package, R environment and/or csv file
   - Modify variable attribution
