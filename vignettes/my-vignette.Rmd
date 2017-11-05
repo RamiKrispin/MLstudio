@@ -41,5 +41,7 @@ There are three methods to load dataset into the platform:
 
 2.	Loading the available dataset within installed packages, supporting data frame, data table, and matrix and ts objects.
 
+![](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Installed_R_Datasets.gif)
+
 3.	Loading from csv file.
 
