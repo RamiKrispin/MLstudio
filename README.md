@@ -14,23 +14,19 @@ Currently available features:
 - Time series plots – seasonality, correlation etc.
 3. Machine learning and deep learning algorithms with the H2O package, currently only classification models available (Deep Learning, Random Forest, GBM, GLM)
 
-Features under construction:
--	Machine learning:
+Under construction features:
+1. Machine learning - 
+  - Regression models
+  - The caret function and models 
+  - H2O grid search and autoML
+  - Deep learning models with Keras
+2. Time series and forecasting - 
+  - Tools for time series analysis
+  - Forecasting models 
+3. Data visualization 
+  – extending the current functionality
 
-o	Deep learning models with Keras
 
-o	Regression models
-
-o	The caret training function and models
-
-o	H2O Grid search
-
-o	Unsupervised learning
-
-o	Time series and forecasting with the forecast package 
-
--	Data manipulation tools – summary tables, sampling etc.
--	Data visualization – extending the current functionality
 
 Please run the following R code to lunch the app into web browser (the app run best on google chrome):
 source("https://raw.githubusercontent.com/RamiKrispin/Shiny-App/master/Shiny%20Modeling%20Git.R")
