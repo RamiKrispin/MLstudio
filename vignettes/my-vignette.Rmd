@@ -66,3 +66,10 @@ There are three methods to load dataset into the platform:
 The variables attribution can be seen in the “Prep” tab in the middle table, a more in depth summary available on the variable summary box. Using the variable attributes option, it is possible to modify if needed the variables attributes. Below can be find an interactive table, the fields can be sort and a search option is available. 
 
 ![Variables summary and attribution changing](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Data_Prep.gif)
+
+
+### **Data Summary**
+
+A data summary function is available on the “Prep” tab under the “Select Option” dropdown menu. This is a dplyr based function and it is provide the ability to summaries data by a specific group. Currently there summaries categories are – count, mean, sd, max and mean.
+
+![diamonds dataset - price summary by cut](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Data_Summary.gif)
