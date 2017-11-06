@@ -2,14 +2,14 @@
 
 ## **Overview**
 
-The ML Studio is an interactive platform for data visualization, statistical modeling and machine learning applications. Based on [Shiny](http://shiny.rstudio.com/) and [shinydashboard](https://rstudio.github.io/shinydashboard/) interface, with [Plotly](https://plot.ly/r/) interactive data visualization, [DT](https://rstudio.github.io/DT/) HTML tables and [H2O](https://www.h2o.ai/) machine learning and deep learning algorithms, the ML Studio provides a set of tools for the data science pipeline workflow. More details available on the package [vignette](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/my-vignette.Rmd).
+The ML Studio is an interactive platform for data visualization, statistical modeling and machine learning applications. Based on [Shiny](http://shiny.rstudio.com/) and [shinydashboard](https://rstudio.github.io/shinydashboard/) interface, with [Plotly](https://plot.ly/r/) interactive data visualization, [DT](https://rstudio.github.io/DT/) HTML tables and [H2O](https://www.h2o.ai/) machine learning and deep learning algorithms. The ML Studio provides a set of tools for the data science pipeline workflow. More details available on the package [vignette](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/my-vignette.Rmd).
 
 ![The ML Studio package](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/MLStudio.gif)
 
 ### **Currently available features:**
 1. Data Management -
   - Ability to load data from installed R package, R environment and/or csv file
-  - Modify variable attribution
+  - Modify variables attributes
   - Data summary with dplyr functions
 2. Interactive data visualization tool with the Plotly package, that include:
 - Scatter, line, histogram correlation, etc.
@@ -21,9 +21,9 @@ The ML Studio is an interactive platform for data visualization, statistical mod
   - In depth model summary
   - Ability to compare, select and save models 
   - Regression models
-  - The caret function and models 
+  - The caret functions and models 
   - H2O grid search and autoML
-  - Deep learning models with Keras
+  - Deep learning applications with Keras
 2. Time series and forecasting - 
   - Tools for time series analysis
   - Forecasting models with the forecast package 
@@ -42,7 +42,7 @@ Please note – the H2O package may require additional Java adds-in (if not inst
 
 ### **Launch the App**
 
-The app is called from R and opened on the default web browser (running best on Google Chrome). To open the app please use:
+The app is launched from R and opened on the default web browser (running best on Google Chrome). To open the app please use:
 
 ```r
 # Launch the MLstudio

@@ -138,7 +138,7 @@ ui <- dashboardPage(
                                                         selectInput('data_option', 'Select Option',
                                                                     list(
                                                                       "Variables Attributes" = "var_attr",
-                                                                      "Data Summarise" = "data_summary"
+                                                                      "Data Summary" = "data_summary"
                                                                     ))
                                        ),
                                        conditionalPanel(condition =  "output.loaded_table_flag == '1' && output.class_df_flag == false && input.data_option == 'var_attr'",

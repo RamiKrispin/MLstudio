@@ -10,7 +10,7 @@ vignette: >
 ---
 ## **Overview**
 
-The ML Studio is an interactive platform for data visualization, statistical modeling and machine learning applications. Based on [Shiny](http://shiny.rstudio.com/) and [shinydashboard](https://rstudio.github.io/shinydashboard/) interface, with [Plotly](https://plot.ly/r/) interactive data visualization, [DT](https://rstudio.github.io/DT/) HTML tables and [H2O](https://www.h2o.ai/) machine learning and deep learning algorithms, the ML Studio provides a set of tools for the data science pipeline workflow.
+The ML Studio is an interactive platform for data visualization, statistical modeling and machine learning applications. Based on [Shiny](http://shiny.rstudio.com/) and [shinydashboard](https://rstudio.github.io/shinydashboard/) interface, with [Plotly](https://plot.ly/r/) interactive data visualization, [DT](https://rstudio.github.io/DT/) HTML tables and [H2O](https://www.h2o.ai/) machine learning and deep learning algorithms. The ML Studio provides a set of tools for the data science pipeline workflow.
  
 ## **Installation**
 
@@ -24,7 +24,7 @@ Please note – the H2O package may require additional Java adds-in (if not inst
 
 ## **Getting Start**
 ### **Launch the App**
-The app is called from R and opened on the default web browser (running best on Google Chrome). To open the app please use:
+The app is launched from R and opened on the default web browser (running best on Google Chrome). To open the app please use:
 
 ```r
 # Launch the MLstudio
@@ -33,7 +33,7 @@ runML()
 
 ### **Data**
 
-The ML Studio provide the user with the ability to load (or remove), modify, visualize and analyze multiple dataset at the same time.
+The ML Studio provides the user with the ability to load (or remove), modify, visualize and analyze multiple datasets at the same time.
 
 Under the “Data” tab there are two sub-tabs:
 
@@ -47,13 +47,13 @@ Under the “Data” tab there are two sub-tabs:
 
 
 #### **Loading Data**
-There are three methods to load dataset into the platform:
+There are three methods to load a dataset into the platform:
 
-1.	Loading dataset from the R environment, currently supporting data frame, data table, and matrix and ts objects.
+1.	Loading the dataset from the R environment, currently supporting data frame, data table, matrix and ts objects.
 
 ![Loading dataset from R enironment](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Load_from_R.gif)
 
-2.	Loading the available dataset within installed packages, supporting data frame, data table, and matrix and ts objects.
+2.	Loading the available dataset within installed packages, supporting data frame, data table, matrix and ts objects.
 
 ![Loading the diamond dataset from the ggplot2's datasets](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Installed_R_Datasets.gif)
 
@@ -63,20 +63,20 @@ There are three methods to load dataset into the platform:
 
 #### **Data Attribution**
 
-The variables attribution can be seen in the “Prep” tab in the middle table, a more in depth summary available on the variable summary box. Using the variable attributes option, it is possible to modify if needed the variables attributes. Below can be find an interactive table, the fields can be sort and a search option is available. 
+The variables attributions can be seen in the “Prep” tab in the middle table, a more in depth summary is available in the variable summary box. Using the variable attributes option, it is possible to modify if needed the attributes. Below is an interactive table, the fields can be sorted and a search option is available. 
 
 ![Variables summary and attribution changing](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Data_Prep.gif)
 
 
 ### **Data Summary**
 
-A data summary function is available on the “Prep” tab under the “Select Option” dropdown menu. This is a dplyr based function and it is provide the ability to summaries data by a specific group. Currently there summaries categories are – count, mean, sd, max and mean.
+A data summary function is available on the “Prep” tab under the “Select Option” dropdown menu. This is a dplyr based function and it provides the ability to summarize data by a specific group. Currently the summary categories are – count, mean, sd, max and min.
 
 ![diamonds dataset - price summary by cut](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Data_Summary.gif)
 
 ### **Visualization**
 
-Utilizing Plotly interactive data visualization tools along with Shiny engine, the ML Studio provides the user with effective tool for data exploration. The "Visualization" tab provides key functionality:
+Utilizing Plotly interactive data visualization tools along with Shiny engine, the ML Studio provides the user with effective tools for data exploration. The "Visualization" tab provides key functionality:
 
 - Application for multivariate visualization – scatter, line, boxplot histogram, density, and correlation plots
 
@@ -88,19 +88,19 @@ Utilizing Plotly interactive data visualization tools along with Shiny engine, t
 
 ### **Models**
 
-The models applications of the ML Studio is still under development and currently available four classification models from the H2O package (Deep Learning, GBM, GLM and Random Forest).
+The models applications of the ML Studio are still under development and currently four classification models from the H2O package are available (Deep Learning, GBM, GLM and Random Forest).
 
 ![Classification model for the GermanCredit dataset](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Models.gif)
 
-Features that under development:
+Features that are under development:
 
 1. Machine learning applications:
 - In depth model summary
 - Ability to compare, select and save models
 - Regression models
-- The caret function and models
+- The caret functions and models
 - H2O grid search and autoML
-- Deep learning models with Keras
+- Deep learning applications with Keras
 
 2. Time series and forecasting:
 - Tools for time series analysis
