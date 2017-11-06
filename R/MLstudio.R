@@ -7,5 +7,5 @@
 runML <- function(){
   suppressPackageStartupMessages(
     shiny::runApp(system.file(package = "MLstudio"), launch.browser = TRUE)
-)
+  )
 }
