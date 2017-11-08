@@ -552,7 +552,7 @@ ui <- dashboardPage(
                                                                                  selected = "Variable Importance"
                                                                      ),
                                                                      circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                     tooltip = shinyWidgets::tooltipOptions(title = "Additional Tuning Parameters")
+                                                                     tooltip = shinyWidgets::tooltipOptions(title = "Additional Plots")
                                                                    ),
 
                                                                    conditionalPanel(condition = "input.h2o_rf_plots_select == 'var_imp'",
@@ -586,7 +586,7 @@ ui <- dashboardPage(
                                                                                  selected = "Variable Importance"
                                                                      ),
                                                                      circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                     tooltip = shinyWidgets::tooltipOptions(title = "Additional Tuning Parameters")
+                                                                     tooltip = shinyWidgets::tooltipOptions(title = "Additional Plots")
                                                                    ),
 
                                                                    conditionalPanel(condition = "input.h2o_gbm_plots_select == 'var_imp'",
@@ -620,7 +620,7 @@ ui <- dashboardPage(
                                                                                  selected = "Variable Importance"
                                                                      ),
                                                                      circle = TRUE, status = "danger", icon = icon("gear"), width = "300px",
-                                                                     tooltip = shinyWidgets::tooltipOptions(title = "Additional Tuning Parameters")
+                                                                     tooltip = shinyWidgets::tooltipOptions(title = "Additional Plots")
                                                                    ),
 
                                                                    conditionalPanel(condition = "input.h2o_dl_plots_select == 'var_imp'",
