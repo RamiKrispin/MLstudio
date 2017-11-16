@@ -12,6 +12,3 @@ Luanch the ML Studio app in the default browser
 \details{
 For more details please check the github page: https://github.com/RamiKrispin/MLstudio
 }
-\examples{
-runML()
-}

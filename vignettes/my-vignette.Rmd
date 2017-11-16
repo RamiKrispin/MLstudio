@@ -51,28 +51,28 @@ There are three methods to load a dataset into the platform:
 
 1.	Loading the dataset from the R environment, currently supporting data frame, data table, matrix and ts objects.
 
-![Loading dataset from R enironment](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Load_from_R.gif)
+![Loading dataset from R enironment](../vignettes/gif/Load_from_R.gif)
 
 2.	Loading the available dataset within installed packages, supporting data frame, data table, matrix and ts objects.
 
-![Loading the diamond dataset from the ggplot2's datasets](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Installed_R_Datasets.gif)
+![Loading the diamond dataset from the ggplot2's datasets](../vignettes/gif/Installed_R_Datasets.gif)
 
 3.	Loading from csv file.
 
-![Loading the Kaggle's Titanic train set from a csv file](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Load_CSV.gif)
+![Loading the Kaggle's Titanic train set from a csv file](../vignettes/gif/Load_CSV.gif)
 
 #### **Data Attribution**
 
 The variables attributions can be seen in the “Prep” tab in the middle table, a more in depth summary is available in the variable summary box. Using the variable attributes option, it is possible to modify if needed the attributes. Below is an interactive table, the fields can be sorted and a search option is available. 
 
-![Variables summary and attribution changing](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Data_Prep.gif)
+![Variables summary and attribution changing](../vignettes/gif/Data_Prep.gif)
 
 
 ### **Data Summary**
 
 A data summary function is available on the “Prep” tab under the “Select Option” dropdown menu. This is a dplyr based function and it provides the ability to summarize data by a specific group. Currently the summary categories are – count, mean, sd, max and min.
 
-![diamonds dataset - price summary by cut](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Data_Summary.gif)
+![diamonds dataset - price summary by cut](../vignettes/gif/Data_Summary.gif)
 
 ### **Visualization**
 
@@ -80,17 +80,17 @@ Utilizing Plotly interactive data visualization tools along with Shiny engine, t
 
 - Application for multivariate visualization – scatter, line, boxplot histogram, density, and correlation plots
 
-![Visualization of the diamonds and iris datasets](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Data_Vis.gif)
+![Visualization of the diamonds and iris datasets](../vignettes/gif/Data_Vis.gif)
 
 - Application for time series visualization - seasonality, boxplot and lags plots
 
-![Visualization of the AirPassengers datasets](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Data_Vis_ts.gif)
+![Visualization of the AirPassengers datasets](../vignettes/gif/Data_Vis_ts.gif)
 
 ### **Models**
 
 The models applications of the ML Studio are still under development and currently four classification models from the H2O package are available (Deep Learning, GBM, GLM and Random Forest).
 
-![Classification model for the GermanCredit dataset](https://github.com/RamiKrispin/MLstudio/blob/master/vignettes/gif/Models.gif)
+![Classification model for the GermanCredit dataset](../vignettes/gif/Models.gif)
 
 Features that are under development:
 
