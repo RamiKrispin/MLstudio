@@ -2,12 +2,12 @@
 % Please edit documentation in R/MLstudio.R
 \name{runML}
 \alias{runML}
-\title{Luanch the ML Studio app in the default browser}
+\title{Launch the ML Studio app in the default browser}
 \usage{
 runML()
 }
 \description{
-Luanch the ML Studio app in the default browser
+Launch the ML Studio app in the default browser
 }
 \details{
 For more details please check the github page: https://github.com/RamiKrispin/MLstudio
