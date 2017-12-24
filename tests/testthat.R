@@ -1,1 +1,4 @@
-testthat::test_check("MLstudio")
+library(testthat)
+library(MLstudio)
+
+test_check("MLstudio")
