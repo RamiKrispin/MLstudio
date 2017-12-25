@@ -2,6 +2,10 @@
 #' @import shiny shinydashboard
 #' @export
 #' @details For more details please check the github page: https://github.com/RamiKrispin/MLstudio
+#'@examples
+#' \dontrun{
+#' runML()
+#' }
 #'
 runML <- function(){
   suppressPackageStartupMessages(
