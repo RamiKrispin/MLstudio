@@ -324,7 +324,8 @@ ui <- dashboardPage(
                                                   conditionalPanel(condition = "input.nfolds_flag == true",
                                                                    sliderInput("nfolds", "Set the Number of folds:",
                                                                                min = 3, max = 10, step = 1,
-                                                                               value = 5))
+                                                                               value = 5)),
+                                                  actionButton("h2o_run_class", "Run Model")
                                               ),
                                               box(width = 4, title = "Model Tuning",
                                                   conditionalPanel( condition = "input.binomial_models == 'h2o_rf'",
@@ -523,8 +524,7 @@ ui <- dashboardPage(
                                                                                                  value = 100, step = 1)
                                                                     )
 
-                                                  ),
-                                                  actionButton("h2o_run_class", "Run Model")
+                                                  )
                                               )
                                             )
                                    ),
