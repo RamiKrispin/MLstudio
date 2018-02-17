@@ -22,7 +22,8 @@ Imports:
   magrittr (>= 1.5),
   shinycssloaders (>= 0.2.0),
   shinyWidgets (>= 0.3.6),
-  e1071 (>= 1.6-8)
+  e1071 (>= 1.6-8),
+  TSstudio (>= 0.1.1)
 Depends:
   shinydashboard (>= 0.6.1),
   shiny (>= 1.0.5)
